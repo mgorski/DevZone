@@ -11,6 +11,7 @@
  * @author Pawel Pabian
  * http://implix.com
  * http://dev.getresponse.com
+ *
  */
 
 # JSON-RPC module is required
@@ -32,11 +33,6 @@ $result = NULL;
 
 # get CAMPAIGN_ID of 'sample_marketing' campaign
 try {
-    $conditions = Array(
-        'campaign' => '7CT',
-        'name' => 'Sample Name',
-        'email' => 'sample1@emailadddress.com'
-    );
     $result = $client->get_campaigns(
         $api_key,
         array (
