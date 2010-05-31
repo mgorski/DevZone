@@ -244,7 +244,7 @@ class Gr_Integration
 		
 		// GR Form, generate form from given options
 		
-		$form .= '<div class="gr_form">';
+		$form .= '<div id="GRform">';
        	$form .= '<form accept-charset="utf-8" action="http://www.getresponse.com/cgi-bin/add.cgi">';
         $form .= '<input type="hidden" name="custom_http_referer" id="custom_http_referer" value="'. $_SERVER['REQUEST_URI'] .'"/>';
         
@@ -266,36 +266,33 @@ class Gr_Integration
         if ( strlen($options[$number]['custom_ref']) > 0 )
         {
             $form .= '<input type="hidden" name="custom_ref" id="custom_ref" value="' . $options[$number]['custom_ref'] . '" />';
-        }
-        
-        $form .= '<table> ';
+        }       
         
         if ( strlen($options[$number]['title']) > 0 )
         {
-            $form .= '<tr>';
-            $form .= '<td style="text-align: center;" colspan="2"><b>' . $options[$number]['title'] . '</b></td>';
-            $form .= '</tr>';
+            $form .= '<h2 class="widgettitle GRf-title">' . $options[$number]['title'] . '</h2>';
         }
+				
         
         if ( 'yes' === $options[$number]['hide_name'] )
         {
-            $form .= '<tr style="display: none;">';
-            $form .= '<td style="width: 10%;"><label for="subscriber_name">'. $options[$number]['subscriberNameText'] .'&#160</label></td>';
-            $form .= '<td><input style="width: 95%" id="subscriber_name" name="subscriber_name" type="text" value="Friend"/></td>';
-            $form .= '</tr>';
+            $form .= '<div style="display:none;">';
+            $form .= '<label for="subscriber_name">'. $options[$number]['subscriberNameText'] .'</label>';
+            $form .= '<input id="subscriber_name" name="subscriber_name" type="text" value="Friend"/>';
+            $form .= '</div>';
         }
         else
         {
-            $form .= '<tr>';
-            $form .= '<td style="width: 10%;"><label for="subscriber_name">'. $options[$number]['subscriberNameText'] .'&#160</label></td>';
-            $form .= '<td><input style="width: 95%" id="subscriber_name" name="subscriber_name" type="text" value=""/></td>';
-            $form .= '</tr>';
+            $form .= '<div class="GRf-row">';
+            $form .= '<label for="subscriber_name">'. $options[$number]['subscriberNameText'] .'</label>';
+            $form .= '<input id="subscriber_name" name="subscriber_name" type="text" value=""/>';
+            $form .= '</div>';
         }
 	    
-        $form .= '<tr>';
-        $form .= '<td style="width: 10%;"><label for="subscriber_email">'. $options[$number]['subscriberEmailText'] .'&#160</label></td>';
-        $form .= '<td><input style="width: 95%" id="subscriber_email" name="subscriber_email" type="text" value=""/></td>';
-        $form .= '</tr>';
+        $form .= '<div class="GRf-row">';
+        $form .= '<label for="subscriber_email">'. $options[$number]['subscriberEmailText'] .'</label>';
+        $form .= '<input id="subscriber_email" name="subscriber_email" type="text" value=""/>';
+        $form .= '</div>';		
 
         // customs form hadnler
 		if ( isset($options[$number]['customs']) and is_array($options[$number]['customs']) and count($options[$number]['customs']) > 0 )
@@ -308,36 +305,31 @@ class Gr_Integration
 	            }
 	            else
 	            {
-                    $form .= '<tr>';
-                    $form .= '<td style="width: 10%;"><label for="'. $values['name'] .'">'. $values['name'] . '&#160</label></td>';
-                    $form .= '<td><input style="width: 95%" id="'. $values['name'] .'" name="custom_'. $values['name'] .'" type="text" value="' . (empty($values['value']) ? '' : $values['value']) . '"/></td>';
-                    $form .= '</tr>';
+                    $form .= '<div class="GRf-row">';
+                    $form .= '<label for="'. $values['name'] .'">'. $values['name'] . '</label>';
+                    $form .= '<input id="'. $values['name'] .'" name="custom_'. $values['name'] .'" type="text" value="' . (empty($values['value']) ? '' : $values['value']) . '"/>';
+                    $form .= '</div>';
 	            }
 	        }
-	    }
-    		    
+	    }    		    
+        
+        $form .= '<div class="GRf-hCnt">';
+        $form .= '<input type="submit" class="GRfh-In" value="'. $options[$number]['buttonText'] .'" />';
+        $form .= '</div>';
+
+        $form .= '<div class="GRf-info">';
+        $form .= 'GetResponse <a href="http://www.getresponse.com/" title="Email Marketing">Email Marketing</a></div>';
+        $form .= '</div>';                
+
+        $form .= '</form>';        		      
+
 	    if ( 'yes' === $options[$number]['show_counter'] )
         {
-            $form .= '<tr>';
-            $form .= '<td style="text-align: center; padding: 5px 16%;" colspan="2">';
+            $form .= '<div>';
             $form .= '<script type="text/javascript" src="http://www.getresponse.com/display_subscribers_count.js?campaign_name='. $options[$number]['campaign_name'] .'"><!--empty--></script>';
-            $form .= '</td>';
-            $form .= '</tr>';
-        }
-        
-        $form .= '<tr>';
-        $form .= '<td style="text-align: center;" colspan="2"><input type="submit" value="'. $options[$number]['buttonText'] .'" /></td>';
-        $form .= '</tr>';
+            $form .= '</div>';
 
-        $form .= '<tr>';
-        $form .= '<td style="text-align: center;" colspan="2"><div style="color: #0000ff;">GetResponse <a href="http://www.getresponse.com/">Email Marketing</a></div></td>';
-        $form .= '</tr>';        
-        
-        $form .= '</table>';
-        
-        $form .= '</form>';
-        
-        $form .= '</div>';
+        }  
         
         echo $form;
 	}
