@@ -1,3 +1,11 @@
+If you have any questions please write directly to: 
+
+Ben Tadiar
+ben@bentadiar.co.uk
+http://github.com/BenTheDesigner
+
+
+
 ## GetResponsePHP
 
 GetResponsePHP is a PHP5 implementation of the [GetResponse API][]
