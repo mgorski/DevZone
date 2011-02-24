@@ -19,7 +19,7 @@
 					'method' : 'get_campaigns',
 					'params' : [
 						API_KEY, {
-							'name' : { 'EQUALS' : 'prezentacje' }
+							'name' : { 'EQUALS' : 'sample_marketing' }
 						}]
 				};
 				
