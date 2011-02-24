@@ -10,7 +10,7 @@
 			import mx.rpc.events.FaultEvent;
 			import mx.rpc.events.ResultEvent;
 			
-			private static const API_KEY:String = 'a0dc9b7c268d84455faa2fd7b6e2ef44';
+			private static const API_KEY:String = 'ENTER_YOUR_API_KEY_HERE';
 			
 			protected function sendButton_clickHandler(event:MouseEvent):void
 			{
