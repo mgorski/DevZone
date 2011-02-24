@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+					   xmlns:s="library://ns.adobe.com/flex/spark" 
+					   xmlns:mx="library://ns.adobe.com/flex/mx">
+	
+	<fx:Script>
+		<![CDATA[
+			import com.adobe.serialization.json.JSON;
+			
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			
+			private static const API_KEY:String = 'a0dc9b7c268d84455faa2fd7b6e2ef44';
+			
+			protected function sendButton_clickHandler(event:MouseEvent):void
+			{
+				
+				var params:Object = {
+					'method' : 'get_campaigns',
+					'params' : [
+						API_KEY, {
+							'name' : { 'EQUALS' : 'prezentacje' }
+						}]
+				};
+				
+				var requestStrin:String = JSON.encode(params);
+				
+				var loader:URLLoader = new URLLoader();
+				configureListeners(loader);
+				
+				var request:URLRequest = new URLRequest("http://api2.getresponse.com");
+				request.method = URLRequestMethod.POST;
+				request.data = requestStrin;
+				
+				loader.addEventListener(Event.COMPLETE, _prepareAddContact);
+				
+				try {
+					loader.load(request);
+				} catch (error:Error) {
+					trace("Unable to load requested document.");
+				}
+				
+			}
+			
+			private function _prepareAddContact(event:Event):void
+			{
+				event.target.removeEventListener(Event.COMPLETE, _prepareAddContact);
+				var loader:URLLoader = URLLoader(event.target);
+				
+				var responseObj:Object = JSON.decode(loader.data);
+				
+				for(var x:String in responseObj.result)
+				{
+					_addContact(x);
+				}
+				
+			}
+			
+			private function _addContact(CAMPAIGN_ID:String):void{
+				
+				var params:Object = {
+					"method" : "add_contact",
+					"params" : [
+						API_KEY,
+						{
+							"campaign"  : CAMPAIGN_ID,
+							"action"    : "standard",
+							"name"      : "testapi",
+							"email"     : "mail@mgorski.com",
+							"ip"        : "127.0.0.1",
+							"customs" : [
+								{
+									"name"       : "name_1_value",
+									"content"    : "content_1_value"
+								},
+								{
+									"name"       : "name_2_value",
+									"content"    : "content_2_value"
+								}
+							]
+						}
+					]
+				}
+				////////////////////
+				var requestStrin:String = JSON.encode(params);
+				
+				var loader:URLLoader = new URLLoader();
+				configureListeners(loader);
+				
+				var request:URLRequest = new URLRequest("http://api2.getresponse.com");
+				request.method = URLRequestMethod.POST;
+				request.data = requestStrin;
+				/* loader.addEventListener(Event.COMPLETE, function(event:Event):void{
+				trace("add_contact_complete");
+				});
+				loader.addEventListener(HTTPStatusEvent.HTTP_RESPONSE_STATUS, function(event:Event):void{
+				trace("res status");
+				}); */
+				try {
+					loader.load(request);
+				} catch (error:Error) {
+					trace("Unable to load requested document.");
+				}
+				
+			}
+			
+			private function configureListeners(dispatcher:IEventDispatcher):void {
+				dispatcher.addEventListener(Event.COMPLETE, completeHandler);
+				/* 	dispatcher.addEventListener(Event.OPEN, openHandler);
+				dispatcher.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+				dispatcher.addEventListener(SecurityErrorEvent.SECURITY_ERROR, securityErrorHandler);
+				dispatcher.addEventListener(HTTPStatusEvent.HTTP_STATUS, httpStatusHandler);
+				dispatcher.addEventListener(IOErrorEvent.IO_ERROR, ioErrorHandler); */
+			}
+			
+			private function completeHandler(event:Event):void {
+				var loader:URLLoader = URLLoader(event.target);
+				trace("completeHandler: " + loader.data);
+				
+				var responseObj:Object = JSON.decode(loader.data);
+				
+				trace(responseObj);
+			}
+			
+			/* 	private function openHandler(event:Event):void {
+			trace("openHandler: " + event);
+			}
+			
+			private function progressHandler(event:ProgressEvent):void {
+			trace("progressHandler loaded:" + event.bytesLoaded + " total: " + event.bytesTotal);
+			}
+			
+			private function securityErrorHandler(event:SecurityErrorEvent):void {
+			trace("securityErrorHandler: " + event);
+			}
+			
+			private function httpStatusHandler(event:HTTPStatusEvent):void {
+			trace("httpStatusHandler: " + event.status);
+			}
+			
+			private function ioErrorHandler(event:IOErrorEvent):void {
+			trace("ioErrorHandler: " + event);
+			} */
+			
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<s:Button id="sendButton" click="sendButton_clickHandler(event)"/>				   
+	
+	
+</s:WindowedApplication>
