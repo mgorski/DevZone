@@ -1,6 +1,46 @@
 GetResponse API changelog
 =========================
 
+version 1.8.8, 2011-10-10
+- following response fields that were previously JSON-string
+  has now more narrow typing to JSON-number:
+  get_messages() - day_of_cycle
+  get_message() - day_of_cycle
+  get_message_stats() - sent, opened, clicked, bounces_*, complaints_*
+  get_contacts() - cycle_day
+  get_contact() - cycle_day
+  get_contacts_deleted() - cycle_day
+  get_contacts_subscription_stats() - import, email, www, panel, leads, sale, api, forward, survey, iphone
+  get_contacts_amount_per_account() - calculated amount
+  get_contacts_amount_per_campaign() - calculated amounts
+  get_links() - clicks
+  get_link() - clicks
+- online documentation fixes to respect difference
+  between JSON-string and JSON-number types
+
+version 1.8.7, 2011-10-10
+- added get_messages_amount_per_account() method
+- added get_messages_amount_per_campaign() method
+
+version 1.8.6, 2011-10-10
+- get_contacts_subscription_stats() allows to narrow results
+  by campaigns / get_campaigns params
+
+version 1.8.5, 2011-09-20
+- get_contacts_deleted() can narrow down result
+  to contacts removed from specific messages
+  and from specific reason
+
+version 1.8.4, 2011-08-22
+- send_newsletter() and add_follow_up methods
+  can detect Dynamic Content errors in subject and contents
+
+version 1.8.3, 2011-08-10
+- reasons in get_contacts_deleted() method changed
+
+version 1.8.2, 2011-07-05
+- added description param to campaign methods
+
 version 1.8.1, 2011-05-18
 - added methods to manage drafts
   add_draft()
