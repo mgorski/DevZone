@@ -17,7 +17,7 @@ Including: C#, Java, JavaScript, Perl, PHP, Python, Ruby, Flex.
 
 ###METHODS
 ####Connection testing
-*   ping [ping](#ping)
+*   [ping](#ping)
 
 ####Account
 
@@ -103,7 +103,7 @@ get_confirmation_bodies
 get_confirmation_body
  
 
-####ping<a id="ping"/>
+####ping<a name="ping"/>
 #####Test connection with API.
 ######JSON Request:
 
