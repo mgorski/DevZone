@@ -97,7 +97,7 @@ get_confirmation_body
 
 ping
 Test connection with API.
-
+```JSON
 JSON Request:
 
     {
@@ -107,6 +107,7 @@ JSON Request:
 
         ]
     }
+```
 JSON Response:
 
     {
