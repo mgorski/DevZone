@@ -17,7 +17,7 @@ Including: C#, Java, JavaScript, Perl, PHP, Python, Ruby, Flex.
 
 ###METHODS
 ####Connection testing
-*   ping
+*   ping [ping](#ping)
 
 ####Account
 
@@ -25,58 +25,70 @@ Including: C#, Java, JavaScript, Perl, PHP, Python, Ruby, Flex.
 *   get_account_from_fields
 *   get_account_from_field
 *   add_account_from_field
-get_account_domains
-get_account_domain
-Campaigns
-get_campaigns
-get_campaign
-add_campaign
-get_campaign_domain
-set_campaign_domain
-delete_campaign_domain
-get_campaign_postal_address
-set_campaign_postal_address
-Messages
-get_messages
-get_message
-get_message_contents
-get_message_stats
-send_newsletter
-add_follow_up
-add_draft
-delete_newsletter
-delete_follow_up
-set_follow_up_cycle
-get_messages_amount_per_account
-get_messages_amount_per_campaign
-Contacts
-get_contacts
-get_contact
-set_contact_name
-get_contact_customs
-set_contact_customs
-get_contact_geoip
-get_contact_opens
-get_contact_clicks
-set_contact_cycle
-add_contact
-move_contact
-delete_contact
-get_contacts_deleted
-get_contacts_subscription_stats
-get_contacts_amount_per_account
-get_contacts_amount_per_campaign
-Links
-get_links
-get_link
-Blacklists
-get_account_blacklist
-add_account_blacklist
-delete_account_blacklist
-get_campaign_blacklist
-add_campaign_blacklist
-delete_campaign_blacklist
-Suppressions
+*   get_account_domains
+*   get_account_domain
+
+####Campaigns
+
+*   get_campaigns
+*   get_campaign
+*   add_campaign
+*   get_campaign_domain
+*   set_campaign_domain
+*   delete_campaign_domain
+*   get_campaign_postal_address
+*   set_campaign_postal_address
+
+####Messages
+
+*   get_messages
+*   get_message
+*   get_message_contents
+*   get_message_stats
+*   send_newsletter
+*   add_follow_up
+*   add_draft
+*   delete_newsletter
+*   delete_follow_up
+*   set_follow_up_cycle
+*   get_messages_amount_per_account
+*   get_messages_amount_per_campaign
+
+####Contacts
+
+*   get_contacts
+*   get_contact
+*   set_contact_name
+*   get_contact_customs
+*   set_contact_customs
+*   get_contact_geoip
+*   get_contact_opens
+*   get_contact_clicks
+*   set_contact_cycle
+*   add_contact
+*   move_contact
+*   delete_contact
+*   get_contacts_deleted
+*   get_contacts_subscription_stats
+*   get_contacts_amount_per_account
+*   get_contacts_amount_per_campaign
+
+####Links
+
+*   get_links
+*   get_link
+
+####Blacklists
+
+*   get_account_blacklist
+*   add_account_blacklist
+*   delete_account_blacklist
+*   get_campaign_blacklist
+*   add_campaign_blacklist
+*   delete_campaign_blacklist
+
+####Suppressions
+
 get_suppressions
 get_suppression
 add_suppression
@@ -91,7 +103,7 @@ get_confirmation_bodies
 get_confirmation_body
  
 
-####ping
+####ping<a id="ping"/>
 #####Test connection with API.
 ######JSON Request:
 
