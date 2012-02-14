@@ -1,6 +1,5 @@
 ##API Documentation
-version 1.8.10, 2012-01-19 [changelog](#https://github.com/GetResponse/DevZone/blob/master/API/changelog.txt)
-____
+version 1.8.10, 2012-01-19 [changelog](https://github.com/GetResponse/DevZone/blob/master/API/changelog.txt "changelog")
 ##AUTHORS
 If you wish to contact GetResponse Developer Zone team, please use the following contact form.
 ##DESCRIPTION
@@ -8,7 +7,7 @@ This document describes the syntax and usage of all API methods. GetResponse API
 ##API KEY
 In order to use GetResponse API, the unique API KEY is required. The key is assigned to every pro account and you can obtain it here.
 
-Warning: Please note that the API KEY unambiguously identifies your account and allows all who know the API KEY to manage contacts, messages etc. Please keep your API key safe and do not share it with any unauthorized persons.
+**Warning**: Please note that the API KEY unambiguously identifies your account and allows all who know the API KEY to manage contacts, messages etc. Please keep your API key safe and do not share it with any unauthorized persons.
 
 If you are a developer and you want to utilize our API with a free account please use the contact form, provide us with your free account name and briefly describe the purpose of your project (requests without project description will be rejected)- we will assign the API KEY for you.
 
@@ -90,18 +89,20 @@ Including: C#, Java, JavaScript, Perl, PHP, Python, Ruby, Flex.
 
 ####Suppressions
 
-get_suppressions
-get_suppression
-add_suppression
-delete_suppression
-get_suppression_skiplist
-add_suppression_skiplist
-delete_suppression_skiplist
-Confirmation
-get_confirmation_subjects
-get_confirmation_subject
-get_confirmation_bodies
-get_confirmation_body
+*   get_suppressions
+*   get_suppression
+*   add_suppression
+*   delete_suppression
+*   get_suppression_skiplist
+*   add_suppression_skiplist
+*   delete_suppression_skiplist
+
+####Confirmation
+
+*   get_confirmation_subjects
+*   get_confirmation_subject
+*   get_confirmation_bodies
+*   get_confirmation_body
  
 
 ####ping<a name="ping"/>
@@ -124,10 +125,10 @@ get_confirmation_body
         },
         "error" : null
     }
-####get_account_info<a name="get_account_info"/>
-Get basic info about your account.
 
-JSON Request:
+####get_account_info<a name="get_account_info"/>
+#####Get basic info about your account.
+######JSON Request:
 
     {
         "method" : "get_account_info",
@@ -135,7 +136,7 @@ JSON Request:
             "your_api_key_here"
         ]
     }
-JSON Response:
+######JSON Response:
 
     {
         "result" : {
