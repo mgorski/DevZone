@@ -95,10 +95,9 @@ get_confirmation_bodies
 get_confirmation_body
  
 
-ping
-Test connection with API.
-```JSON
-JSON Request:
+####ping
+#####Test connection with API.
+######JSON Request:
 
     {
         "method" : "ping",
@@ -107,8 +106,8 @@ JSON Request:
 
         ]
     }
-```
-JSON Response:
+
+######JSON Response:
 
     {
         "result" : {
