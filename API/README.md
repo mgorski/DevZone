@@ -1,9 +1,10 @@
 ##API Documentation
-version 1.8.10, 2012-01-19 (changelog)
+version 1.8.10, 2012-01-19 [changelog](#https://github.com/GetResponse/DevZone/blob/master/API/changelog.txt)
+____
 ##AUTHORS
 If you wish to contact GetResponse Developer Zone team, please use the following contact form.
 ##DESCRIPTION
-This document describes the syntax and usage of all API methods. GetResponse API is JSON-RPC based, server is located at <http://api2.getresponse.com>.
+This document describes the syntax and usage of all API methods. GetResponse API is JSON-RPC based, server is located at *<http://api2.getresponse.com>*.
 ##API KEY
 In order to use GetResponse API, the unique API KEY is required. The key is assigned to every pro account and you can obtain it here.
 
