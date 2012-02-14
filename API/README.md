@@ -21,7 +21,7 @@ Including: C#, Java, JavaScript, Perl, PHP, Python, Ruby, Flex.
 
 ####Account
 
-*   get_account_info
+*   [get_account_info](#get_account_info)
 *   get_account_from_fields
 *   get_account_from_field
 *   add_account_from_field
@@ -123,7 +123,7 @@ get_confirmation_body
         },
         "error" : null
     }
-get_account_info
+####get_account_info<a name="get_account_info"/>
 Get basic info about your account.
 
 JSON Request:
