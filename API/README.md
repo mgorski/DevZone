@@ -6,11 +6,15 @@ If you wish to contact GetResponse Developer Zone team, please use the following
 This document describes the syntax and usage of all API methods. GetResponse API is JSON-RPC based, server is located at <http://api2.getresponse.com>.
 ##API KEY
 In order to use GetResponse API, the unique API KEY is required. The key is assigned to every pro account and you can obtain it here.
+
 Warning: Please note that the API KEY unambiguously identifies your account and allows all who know the API KEY to manage contacts, messages etc. Please keep your API key safe and do not share it with any unauthorized persons.
+
 If you are a developer and you want to utilize our API with a free account please use the contact form, provide us with your free account name and briefly describe the purpose of your project (requests without project description will be rejected)- we will assign the API KEY for you.
+
 ##GETTING STARTED
 Examples in popular programing languages are available on
 Including: C#, Java, JavaScript, Perl, PHP, Python, Ruby, Flex.
+
 ###METHODS
 ####Connection testing
 *   ping
