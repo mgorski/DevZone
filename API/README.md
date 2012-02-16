@@ -1,10 +1,13 @@
-##API Documentation
+##GetResponse API Documentation
 version 1.8.10, 2012-01-19 [changelog](https://github.com/GetResponse/DevZone/blob/master/API/changelog.txt "changelog")
+
 ##AUTHORS
-The GetResponse API Documentation is created and maintained by the ***GetResponse DevZone Team***. If you wish to contact the authors, please use the following contact form at [GetResponse DevZone](http://dev.getresponse.com "GetResponse DevZone").
+The GetResponse API Documentation is created and maintained by the *GetResponse DevZone Team*. If you wish to contact the authors, please use the following contact form at [GetResponse DevZone](http://dev.getresponse.com "GetResponse DevZone").
+
 ##DESCRIPTION
 This document describes the syntax and usage of all API methods. GetResponse API is JSON-RPC based, server is located at ***<http://api2.getresponse.com>***.
 If you are the ***GetResponse360*** user please be aware that your **API URL** is unique and it will be provided to you by your Account Manager.
+
 ##API KEY
 In order to use GetResponse API, the unique **API KEY** is required. The key is assigned to every pro account and you can obtain it here.
 
@@ -31,8 +34,7 @@ Are divided into categories, that describe each part of GetResponse service as f
 8.	[Suppressions](#Suppressions)
 9.	[Confirmation](#Confirmation)
 
-***For GetResponse360 customers there is a set of additional Methods that will be published in GitHub Gist soon.***
-
+*For GetResponse360 customers there is a set of additional Methods that will be published in GitHub Gist soon.*
 ####Connection testing<a name="Connection_testing"/>
 
 *   [ping](#ping)
@@ -125,7 +127,7 @@ Are divided into categories, that describe each part of GetResponse service as f
 
 ####ping<a name="ping"/>
 #####Test connection with API.
-######JSON Request:
+######*JSON Request:*
 
     {
         "method" : "ping",
@@ -135,7 +137,7 @@ Are divided into categories, that describe each part of GetResponse service as f
         ]
     }
 
-######JSON Response:
+######*JSON Response:*
 
     {
         "result" : {
@@ -146,7 +148,7 @@ Are divided into categories, that describe each part of GetResponse service as f
 
 ####get_account_info<a name="get_account_info"/>
 #####Get basic info about your account.
-######JSON Request:
+######*JSON Request:*
 
     {
         "method" : "get_account_info",
@@ -154,7 +156,8 @@ Are divided into categories, that describe each part of GetResponse service as f
             "your_api_key_here"
         ]
     }
-######JSON Response:
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -165,10 +168,10 @@ Are divided into categories, that describe each part of GetResponse service as f
         },
         "error" : null
     }
-####get_account_from_fields<a name="get_account_from_fields"/>
-Get list of email addresses assigned to account.
 
-JSON Request:
+####get_account_from_fields<a name="get_account_from_fields"/>
+#####Get list of email addresses assigned to account.
+######*JSON Request:*
 
     {
         "method" : "get_account_from_fields",
@@ -176,7 +179,8 @@ JSON Request:
             "your_api_key_here"
         ]
     }
-JSON Response:
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -193,10 +197,10 @@ JSON Response:
         },
         "error" : null
     }
-####get_account_from_field<a name="ping"/>
-Get single email address assigned to account using FROM_FIELD_ID.
 
-JSON Request:
+####get_account_from_field<a name="ping"/>
+#####Get single email address assigned to account using FROM_FIELD_ID.
+######*JSON Request:*
 
     {
         "method" : "get_account_from_field",
@@ -207,10 +211,12 @@ JSON Request:
             }
         ]
     }
-Conditions:
 
-####account_from_field (mandatory) – FROM_FIELD_ID.<a name="ping"/>
-JSON Response:
+#####Conditions:
+
+*	account_from_field (mandatory) – FROM_FIELD_ID.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -222,10 +228,10 @@ JSON Response:
         },
         "error" : null
     }
-####add_account_from_field<a name="ping"/>
-Assign email address to account. It can be used in newly created campaigns.
 
-JSON Request:
+####add_account_from_field<a name="ping"/>
+#####Assign email address to account. It can be used in newly created campaigns.
+######*JSON Request:*
 
     {
         "method" : "add_account_from_field",
@@ -237,29 +243,22 @@ JSON Request:
             }
         ]
     }
-JSON Response:
+
+######*JSON Response:*
 
     {
         "result" : {
             "FROM_FIELD_ID" : "abc123",
             "added" : 1
-        },
-        "error" : null
-    }
-or in case of failure
+        }
 
-    {
-        "result" : null,
-        "error"  : "Invalid email syntax"
-    }
-Following errors may be returned: Invalid email syntax.
+#####Following errors may be returned: Invalid email syntax.
 
-Hint: When you add from field from web interface clicking confirmation link is required. But when you use API then it is confirmed by default and ready to use.
+**Hint**: When you add from field from web interface clicking confirmation link is required. But when you use API then it is confirmed by default and ready to use.
 
 ####get_account_domains<a name="ping"/>
-Get domains assigned to account using www interface.
-
-JSON Request:
+#####Get domains assigned to account using www interface.
+######*JSON Request:*
 
     {
         "method" : "get_account_domains",
@@ -267,7 +266,8 @@ JSON Request:
             "your_api_key_here"
         ]
     }
-JSON Response:
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -282,14 +282,12 @@ JSON Response:
         },
         "error" : null
     }
-Warning: Please nothe that after you add domain using www interface it takes up to 24h for us to check DNS propagation. So your domain may not be visible in method output instantly.
+
+**Warning**: Please nothe that after you add domain using www interface it takes up to 24h for us to check DNS propagation. So your domain may not be visible in method output instantly.
 
 ####get_account_domain<a name="ping"/>
-Get single domain assigned to account using www interface.
-
-Comes in handy when you need to check which domain has campaign assigned.
-
-JSON Request:
+#####Get single domain assigned to account using www interface. Comes in handy when you need to check which domain has campaign assigned.
+######*JSON Request:*
 
     {
         "method" : "get_account_domain",
@@ -300,7 +298,8 @@ JSON Request:
             }
         ]
     }
-JSON Response:
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -314,9 +313,8 @@ JSON Response:
  
 
 ####get_campaigns<a name="ping"/>
-Get list of active campaigns in account.
-
-JSON Request:
+#####Get list of active campaigns in account.
+######*JSON Request:*
 
     {
         "method" : "get_campaigns",
@@ -327,10 +325,11 @@ JSON Request:
             }
         ]
     }
-Conditions:
 
-name (optional) – Use text operators to narrow down search results to specific campaign names.
-JSON Response:
+#####Conditions:
+*	name (optional) – Use text operators to narrow down search results to specific campaign names.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -353,9 +352,10 @@ JSON Response:
         },
         "error" : null
     }
-This method provides CAMPAIGN_IDs which can be used in other methods.
 
-Hint: There can be only one campaign of a given name, so if you need it’s CAMPAIGN_ID perform search like that:
+#####This method provides CAMPAIGN_IDs which can be used in other methods.
+
+**Hint**: There can be only one campaign of a given name, so if you need it’s CAMPAIGN_ID perform search like that:
 
     "params" : [
         "your_api_key_here",
@@ -363,7 +363,8 @@ Hint: There can be only one campaign of a given name, so if you need it’s CAMP
             "name" : { "EQUALS" : "your_campaign_1" }
         }
     ]
-and the only one key from response is CAMPAIGN_ID.
+
+#####and the only one key from response is CAMPAIGN_ID.
 
 ####get_campaign<a name="ping"/>
 Get single campaign using CAMPAIGN_ID.
