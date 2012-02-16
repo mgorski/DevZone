@@ -1,22 +1,24 @@
 ##API Documentation
 version 1.8.10, 2012-01-19 [changelog](https://github.com/GetResponse/DevZone/blob/master/API/changelog.txt "changelog")
 ##AUTHORS
-If you wish to contact GetResponse Developer Zone team, please use the following contact form at [GetResponse DevZone](http://dev.getresponse.com "GetResponse DevZone")
+The GetResponse API Documentation is created and maintained by the ***GetResponse DevZone Team***. If you wish to contact the authors, please use the following contact form at [GetResponse DevZone](http://dev.getresponse.com "GetResponse DevZone").
 ##DESCRIPTION
-This document describes the syntax and usage of all API methods. GetResponse API is JSON-RPC based, server is located at *<http://api2.getresponse.com>*.
-If you are the GetResponse360 user please be aware that your API URL is unique and it will be provided to you by your Account Manager.
+This document describes the syntax and usage of all API methods. GetResponse API is JSON-RPC based, server is located at ***<http://api2.getresponse.com>***.
+If you are the ***GetResponse360*** user please be aware that your **API URL** is unique and it will be provided to you by your Account Manager.
 ##API KEY
-In order to use GetResponse API, the unique API KEY is required. The key is assigned to every pro account and you can obtain it here.
+In order to use GetResponse API, the unique **API KEY** is required. The key is assigned to every pro account and you can obtain it here.
 
 **Warning**: Please note that the API KEY unambiguously identifies your account and allows all who know the API KEY to manage contacts, messages etc. Please keep your API key safe and do not share it with any unauthorized persons.
 
 If you are a developer and you want to utilize our API with a free account please use the contact form, provide us with your free account name and briefly describe the purpose of your project (requests without project description will be rejected)- we will assign the API KEY for you.
 
+##SUPPORT
+If you run into an error or you will have difficulties with using the API, you may easily report it in the Issues section here in GetResponse GitHub Organization profile and we will provide all the support we can to solve your issues.
+
 ##GETTING STARTED
-Examples in popular programing languages are available on [GitHub](https://github.com/mgorski/DevZone/tree/master/API/examples "Exapmples of use") Including: C#, Java, JavaScript, Perl, PHP, Python, Ruby, Flex.
+Examples in popular programing languages are available here on [GetResponse GitHub](https://github.com/mgorski/DevZone/tree/master/API/examples "Exapmples of use") Including: C#, Java, JavaScript, Perl, PHP, Python, Ruby, Flex.
 
-###METHODS
-
+##METHODS
 Are divided into categories, that describe each part of GetResponse service as follows:
 
 1.	[Connection testing](#Connection_testing)
@@ -29,7 +31,7 @@ Are divided into categories, that describe each part of GetResponse service as f
 8.	[Suppressions](#Suppressions)
 9.	[Confirmation](#Confirmation)
 
-For GetResponse360 customers there is a set of additional Methods that will be published in GitHub Gist soon.
+***For GetResponse360 customers there is a set of additional Methods that will be published in GitHub Gist soon.***
 
 ####Connection testing<a name="Connection_testing"/>
 
