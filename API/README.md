@@ -15,20 +15,31 @@ If you are the ***GetResponse360*** user please be aware that your **API URL**
 is unique and it will be provided to you by your Account Manager.
 
 ##API KEY
-In order to use GetResponse API, the unique **API KEY** is required. The key is assigned to every pro account and you can obtain it here.
+In order to use GetResponse API, the unique **API KEY** is required. The key 
+is assigned to every pro account and you can obtain it here.
 
-**Warning**: Please note that the API KEY unambiguously identifies your account and allows all who know the API KEY to manage contacts, messages etc. Please keep your API key safe and do not share it with any unauthorized persons.
+**Warning**: Please note that the API KEY unambiguously identifies your account 
+and allows all who know the API KEY to manage contacts, messages etc. Please 
+keep your API key safe and do not share it with any unauthorized persons.
 
-If you are a developer and you want to utilize our API with a free account please use the contact form, provide us with your free account name and briefly describe the purpose of your project (requests without project description will be rejected)- we will assign the API KEY for you.
+If you are a developer and you want to utilize our API with a free account 
+please use the contact form, provide us with your free account name and briefly 
+describe the purpose of your project (requests without project description will 
+be rejected)- we will assign the API KEY for you.
 
 ##SUPPORT
-If you run into an error or you will have difficulties with using the API, you may easily report it in the Issues section here in GetResponse GitHub Organization profile and we will provide all the support we can to solve your issues.
+If you run into an error or you will have difficulties with using the API, you 
+may easily report it in the Issues section here in GetResponse GitHub Organization 
+profile and we will provide all the support we can to solve your issues.
 
 ##GETTING STARTED
-Examples in popular programing languages are available here on [GetResponse GitHub](https://github.com/mgorski/DevZone/tree/master/API/examples "Exapmples of use") Including: C#, Java, JavaScript, Perl, PHP, Python, Ruby, Flex.
+Examples in popular programing languages are available here on 
+[GetResponse GitHub](https://github.com/mgorski/DevZone/tree/master/API/examples "Exapmples of use") 
+Including: C#, Java, JavaScript, Perl, PHP, Python, Ruby, Flex.
 
 ##METHODS
-Are divided into categories, that describe each part of GetResponse service as follows:
+Are divided into categories, that describe each part of GetResponse service as 
+follows:
 
 1.	[Connection testing](#Connection_testing)
 2.	[Account](#Account)
