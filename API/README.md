@@ -254,7 +254,7 @@ Are divided into categories, that describe each part of GetResponse service as f
 
 #####Following errors may be returned: Invalid email syntax.
 
-*Hint*: When you add from field from web interface clicking confirmation link is required. But when you use API then it is confirmed by default and ready to use.
+**Hint**: *When you add from field from web interface clicking confirmation link is required. But when you use API then it is confirmed by default and ready to use.*
 
 ####get_account_domains<a name="ping"/>
 #####Get domains assigned to account using www interface.
@@ -355,7 +355,7 @@ Are divided into categories, that describe each part of GetResponse service as f
 
 #####This method provides CAMPAIGN_IDs which can be used in other methods.
 
-*Hint*: There can be only one campaign of a given name, so if you need it’s CAMPAIGN_ID perform search like that:
+**Hint**: *There can be only one campaign of a given name, so if you need it’s CAMPAIGN_ID perform search like that:*
 
     "params" : [
         "your_api_key_here",
@@ -442,16 +442,14 @@ Add campaign to account.
     }
 Following errors may be returned: Name already taken, Missing From field, Missing Reply-To field, Missing confirmation subject, Missing confirmation body.
 
-*Hint*: More methods that allows fine-tuning campaign will be added in the future. Please check this documentation frequently.
-
-*Hint*: Campaign added through API will use Dynamic Content syntax in messages by default.
-
-**Warning**: Campaign added through API will be visible/usable on www interface after relogging.
+**Hint**: *More methods that allows fine-tuning campaign will be added in the future. Please check this documentation frequently.*
+**Hint**: *Campaign added through API will use Dynamic Content syntax in messages by default.*
+**Warning**: **Campaign added through API will be visible/usable on www interface after relogging.**
 
 ####get_campaign_domain<a name="ping"/>
-Check if any account domain is assigned to campaign. Assigned domain will be used in links in messages sent from this campaign.
+#####Check if any account domain is assigned to campaign. Assigned domain will be used in links in messages sent from this campaign.
 
-*JSON Request:*
+######*JSON Request:*
 
     {
         "method" : "get_campaign_domain",
@@ -462,10 +460,12 @@ Check if any account domain is assigned to campaign. Assigned domain will be use
             }
         ]
     }
+
 #####Conditions:
 
-####campaigns (mandatory) – CAMPAIGN_ID obtained from get_campaigns.<a name="ping"/>
-*JSON Response:*
+*	campaigns (mandatory) – CAMPAIGN_ID obtained from get_campaigns.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -476,14 +476,14 @@ Check if any account domain is assigned to campaign. Assigned domain will be use
         },
         "error" : null
     }
-Empty result means that no domain is assigned.
 
-Following errors may be returned: Missing campaign.
+#####Empty result means that no domain is assigned.
+
+#####Following errors may be returned: Missing campaign.
 
 ####set_campaign_domain<a name="ping"/>
-Assign account domain to campaign. Assigned domain will be used in links in messages sent from this campaign.
-
-*JSON Request:*
+#####Assign account domain to campaign. Assigned domain will be used in links in messages sent from this campaign.
+######*JSON Request:*
 
     {
         "method" : "set_campaign_domain",
@@ -495,11 +495,13 @@ Assign account domain to campaign. Assigned domain will be used in links in mess
             }
         ]
     }
+
 #####Conditions:
 
-####campaigns (mandatory) – CAMPAIGN_ID obtained from get_campaigns.<a name="ping"/>
-account_domain (mandatory) – ACCOUNT_DOMAIN_ID obtained from get_account_domains.
-*JSON Response:*
+*	campaigns (mandatory) – CAMPAIGN_ID obtained from get_campaigns.<a name="ping"/>
+*	account_domain (mandatory) – ACCOUNT_DOMAIN_ID obtained from get_account_domains.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -507,14 +509,14 @@ account_domain (mandatory) – ACCOUNT_DOMAIN_ID obtained from get_account_domai
         },
         "error" : null
     }
-Following errors may be returned: Missing campaign, Missing account domain.
 
-**Warning**: Any messages sent from now on from this campaign will use this domain in links, even if message was scheduled before domain assignment.
+#####Following errors may be returned: Missing campaign, Missing account domain.
+
+**Warning**: **Any messages sent from now on from this campaign will use this domain in links, even if message was scheduled before domain assignment.**
 
 ####delete_campaign_domain<a name="ping"/>
-Unassign account domain from campaign. Unassigned domain will no longer be used in links in messages sent from this campaign.
-
-*JSON Request:*
+#####Unassign account domain from campaign. Unassigned domain will no longer be used in links in messages sent from this campaign.
+######*JSON Request:*
 
     {
         "method" : "delete_campaign_domain",
@@ -525,10 +527,12 @@ Unassign account domain from campaign. Unassigned domain will no longer be used 
             }
         ]
     }
+
 #####Conditions:
 
-####campaigns (mandatory) – CAMPAIGN_ID obtained from get_campaigns.<a name="ping"/>
-*JSON Response:*
+*	campaigns (mandatory) – CAMPAIGN_ID obtained from get_campaigns.<a name="ping"/>
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -536,16 +540,15 @@ Unassign account domain from campaign. Unassigned domain will no longer be used 
         },
         "error" : null
     }
-Following errors may be returned: Missing campaign.
 
-*Hint*: This does not delete domain from account. Domain is still visible in get_account domain result.
+#####Following errors may be returned: Missing campaign.
 
-**Warning**: Any messages sent from now on from this campaign will not use this domain in links, even if message was scheduled before domain unassignment.
+**Hint**: This does not delete domain from account. Domain is still visible in get_account domain result.
+**Warning**: **Any messages sent from now on from this campaign will not use this domain in links, even if message was scheduled before domain unassignment.**
 
 ####get_campaign_postal_address<a name="ping"/>
-Get postal address and postal design (formatting) in campaign. Postal address is attached to every message sent from campaign and can be also viewed on www interface.
-
-*JSON Request:*
+#####Get postal address and postal design (formatting) in campaign. Postal address is attached to every message sent from campaign and can be also viewed on www interface.
+######*JSON Request:*
 
     {
         "method" : "get_campaign_postal_address",
@@ -556,10 +559,12 @@ Get postal address and postal design (formatting) in campaign. Postal address is
             }
         ]
     }
+
 #####Conditions:
 
-####campaigns (mandatory) – CAMPAIGN_ID obtained from get_campaigns.<a name="ping"/>
-*JSON Response:*
+*	campaigns (mandatory) – CAMPAIGN_ID obtained from get_campaigns.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -573,14 +578,13 @@ Get postal address and postal design (formatting) in campaign. Postal address is
         },
         "error" : null
     }
-Empty result means that no postal address is assigned to domain. In such cases postal address from account is used. Fields name and state are optional and may not appear in response (and in design).
 
-Following errors may be returned: Missing campaign.
+#####Empty result means that no postal address is assigned to domain. In such cases postal address from account is used. Fields name and state are optional and may not appear in response (and in design).
+#####Following errors may be returned: Missing campaign.
 
 ####set_campaign_postal_address<a name="ping"/>
-Set postal address and postal design (formatting) in campaign. Postal address is attached to every message sent from campaign and can be also changed on www interface.
-
-*JSON Request:*
+#####Set postal address and postal design (formatting) in campaign. Postal address is attached to every message sent from campaign and can be also changed on www interface.
+######*JSON Request:*
 
     {
         "method" : "set_campaign_postal_address",
@@ -598,6 +602,7 @@ Set postal address and postal design (formatting) in campaign. Postal address is
             }
         ]
     }
+
 #####Conditions:
 
 *	campaigns (mandatory) – CAMPAIGN_ID obtained from get_campaigns.
@@ -608,7 +613,8 @@ Set postal address and postal design (formatting) in campaign. Postal address is
 *	zip (mandatory) – Zip / postal code.
 *	country (mandatory) – Country. Name must be comatible with the one on www interface.
 *	design (mandatory) – How your postal address will be formated. Fields above marked as mandatory must also be present in design! Do not insert HTML tags here, this will be converted in HTML part of messages automatically.
-*JSON Response:*
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -616,12 +622,12 @@ Set postal address and postal design (formatting) in campaign. Postal address is
         },
         "error" : null
     }
-Following errors may be returned: Missing campaign, Token missing in design.
+
+#####Following errors may be returned: Missing campaign, Token missing in design.
 
 ####get_messages<a name="ping"/>
-Get messages in account.
-
-*JSON Request:*
+#####Get messages in account.
+######*JSON Request:*
 
     {
         "method" : "get_messages",
@@ -636,13 +642,15 @@ Get messages in account.
             }
         ]
     }
+
 #####Conditions:
 
 *	campaigns / get_campaigns (optional) – Search only in given campaigns. Uses OR logic. If those params are not given search, is performed in all campaigns in the account. Check IDs in #####Conditions for detailed explanation.
 *	type (optional) – Use newsletter or follow-up to narrow down search results to specific message types.
 *	subject (optional) – Use text operators to narrow down search results to specific message subjects.
 *	draft_mode (optional) – Use true or false, default is false. Switches between regular messages and drafts. Draft mode can be combined with other #####Conditions, for example with type condition to get newsletter drafts only.
-*JSON Response:*
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -664,26 +672,24 @@ Get messages in account.
         },
         "error" : null
     }
-This method provides MESSAGE_IDs which can be used in other methods.
 
-Array flags may be present and represent message flags which may contain following values:
+#####This method provides MESSAGE_IDs which can be used in other methods.
+
+#####Array flags may be present and represent message flags which may contain following values:
 
 *	clicktrack – clicks on links in message are counted.  Note that for the link to be clicktracked it must be also wrapped in Dynamic Content {{LINK}} tag. This behaves differently than WWW interface, where (for simplicity) all links are clicktracked when clicktrack checkbox is set.
 *	subscription_reminder – short disclaimer is added to the message content to make sure that subscriber know why they are receiving the messages.
 *	openrate – opened messages are counted (only if html content is present).
 *	google_analytics – Google Analytics code is appended to every link in message,
-*Hint*: All mergewords in subject are returned as GetResponse Dynamic Content syntax.
 
-*Hint*: If type is follow-up then day_of_cycle is returned and if type is newsletter then send_on is returned. Those fields are not present in draft mode.
-
-*Hint*: If you need plain and HTML contents of your message use get_message_contents method.
+**Hint**: All mergewords in subject are returned as GetResponse Dynamic Content syntax.
+**Hint**: If type is follow-up then day_of_cycle is returned and if type is newsletter then send_on is returned. Those fields are not present in draft mode.
+**Hint**: If you need plain and HTML contents of your message use get_message_contents method.
 
 ####get_message<a name="ping"/>
-Get single message using MESSAGE_ID.
-
-Comes in handy when you need to check which message the given link belongs to.
-
-*JSON Request:*
+#####Get single message using MESSAGE_ID.
+#####Comes in handy when you need to check which message the given link belongs to.
+######*JSON Request:*
 
     {
         "method" : "get_message",
@@ -694,10 +700,12 @@ Comes in handy when you need to check which message the given link belongs to.
             }
         ]
     }
+
 #####Conditions:
 
-####message (mandatory) – MESSAGE_ID.<a name="ping"/>
-*JSON Response:*
+*	message (mandatory) – MESSAGE_ID.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -712,10 +720,11 @@ Comes in handy when you need to check which message the given link belongs to.
         },
         "error" : null
     }
-Output has the same format as for get_messages.
+
+#####Output has the same format as for get_messages.
 
 ####get_message_contents<a name="ping"/>
-Get message contents (parts).
+#####Get message contents (parts).
 
 *JSON Request:*
 
@@ -728,10 +737,12 @@ Get message contents (parts).
             }
         ]
     }
+
 #####Conditions:
 
-message (mandatory) – MESSAGE_ID.
-*JSON Response:*
+*	message (mandatory) – MESSAGE_ID.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -740,16 +751,14 @@ message (mandatory) – MESSAGE_ID.
         },
         "error" : null
     }
-*Hint*: Result may contain only plain, only html or both.
 
-*Hint*: All mergewords in contents are GetResponse Dynamic Content syntax.
-
+**Hint**: Result may contain only plain, only html or both.
+**Hint**: All mergewords in contents are GetResponse Dynamic Content syntax.
 **Warning**: Names text/plain and text/html are deprecated and were replaced by plain and html to make naming consistent with send_newsletter.
 
-get_message_stats
-Get message statistics with daily resolution.
-
-*JSON Request:*
+####get_message_stats
+#####Get message statistics with daily resolution.
+######*JSON Request:*
 
     {
         "method" : "get_message_stats",
@@ -760,10 +769,12 @@ Get message statistics with daily resolution.
             }
         ]
     }
+
 #####Conditions:
 
-message (mandatory) – MESSAGE_ID.
-*JSON Response:*
+*	message (mandatory) – MESSAGE_ID.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -798,12 +809,12 @@ message (mandatory) – MESSAGE_ID.
         },
         "error" : null
     }
-*Hint*: Stats are aggregated by dates of given events. Hence it is normal to have stats with sent = 0 and other values positive because opens, clicks, bounces and complaints take place also during a few days after message was sent.
 
-send_newsletter
-Queue a newsletter to be sent.
+**Hint**: Stats are aggregated by dates of given events. Hence it is normal to have stats with sent = 0 and other values positive because opens, clicks, bounces and complaints take place also during a few days after message was sent.
 
-*JSON Request:*
+####send_newsletter
+#####Queue a newsletter to be sent.
+######*JSON Request:*
 
     {
         "method" : "send_newsletter",
@@ -826,16 +837,18 @@ Queue a newsletter to be sent.
             }
         ]
     }
+
 #####Conditions:
 
-campaign (mandatory) – CAMPAIGN_ID obtained from get_campaigns. Newsletter will be saved in this campaign. Note that it has nothing to do with selecting contacts – check contacts / get_contacts params for that.
-from_field (optional) – FROM_FIELD_ID obtained from get_account_from_fields. It affects From header (name and email) in message. This value will be taken from campaign if not given.
-subject (mandatory) – Subject value, all mergewords should be written as GetResponse Dynamic Content syntax.
-contents (mandatory) – Allowed keys are plain and html, at least one is mandatory. All mergewords should be written as GetResponse Dynamic Content syntax.
-flags (optional) – Enables extra functionality for a message, see message flags for available values.
-contacts / get_contacts (at least one mandatory)- Contacts that should receive a newsletter. See IDs in #####Conditions for detailed explanation.
-suppressions / get_suppressions (optional) – Suppressions to use with that message. Any contact email address that matches any of the masks in those suppressions will be skipped when sending. See IDs in #####Conditions for detailed explanation.
-*JSON Response:*
+*	campaign (mandatory) – CAMPAIGN_ID obtained from get_campaigns. Newsletter will be saved in this campaign. Note that it has nothing to do with selecting contacts – check contacts / get_contacts params for that.
+*	from_field (optional) – FROM_FIELD_ID obtained from get_account_from_fields. It affects From header (name and email) in message. This value will be taken from campaign if not given.
+*	subject (mandatory) – Subject value, all mergewords should be written as GetResponse Dynamic Content syntax.
+*	contents (mandatory) – Allowed keys are plain and html, at least one is mandatory. All mergewords should be written as GetResponse Dynamic Content syntax.
+*	flags (optional) – Enables extra functionality for a message, see message flags for available values.
+*	contacts / get_contacts (at least one mandatory)- Contacts that should receive a newsletter. See IDs in #####Conditions for detailed explanation.
+*	suppressions / get_suppressions (optional) – Suppressions to use with that message. Any contact email address that matches any of the masks in those suppressions will be skipped when sending. See IDs in #####Conditions for detailed explanation.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -845,17 +858,11 @@ suppressions / get_suppressions (optional) – Suppressions to use with that mes
         },
         "error" : null
     }
-Value of contacts represents the number of unique email addresses that are set to receive this newsletter.
 
-or in case of failure
+#####Value of contacts represents the number of unique email addresses that are set to receive this newsletter.
+#####Following errors may be returned: Missing campaign, Missing From field, Missing contents, Contacts list empty, Dynamic Content syntax error, Daily limit of newsletters exceeded.
 
-    {
-        "result" : null,
-        "error"  : "Missing campaign"
-    }
-Following errors may be returned: Missing campaign, Missing From field, Missing contents, Contacts list empty, Dynamic Content syntax error, Daily limit of newsletters exceeded.
-
-*Hint*: You don’t have to worry about duplicates when sending to multiple campaigns.
+**Hint**: You don’t have to worry about duplicates when sending to multiple campaigns.
 
     {
         "method" : "send_newsletter",
@@ -871,9 +878,10 @@ Following errors may be returned: Missing campaign, Missing From field, Missing 
             }
         ]
     }
-In this case if the same email exists in my_campaign_1 and my_campaign_2 campaigns then newsletter will be sent only once to this address (chosen randomly).
 
-**Warning**: You can send 128 newsletters daily. Common mistake is to call API in the following manner:
+#####In this case if the same email exists in my_campaign_1 and my_campaign_2 campaigns then newsletter will be sent only once to this address (chosen randomly).
+
+**Warning**: **You can send 128 newsletters daily. Common mistake is to call API in the following manner:**
 
     {
         "method" : "send_newsletter",
@@ -886,7 +894,8 @@ In this case if the same email exists in my_campaign_1 and my_campaign_2 campaig
             }
         ]
     }
-and again…
+
+#####and again…
 
     {
         "method" : "send_newsletter",
@@ -899,7 +908,8 @@ and again…
             }
         ]
     }
-and again…
+
+#####and again…
 
     {
         "method" : "send_newsletter",
@@ -912,9 +922,9 @@ and again…
             }
         ]
     }
-If you iterate through your contact list and personalize every call then you’re doing it wrong! It can be compared to sending a group of passengers from city A to B, but every passenger travels in his own train.
 
-Correct way of sending personalized content is to use Dynamic Content syntax (check campaign_or_contact_info section) and send newsletter once to a group of people:
+#####If you iterate through your contact list and personalize every call then you’re doing it wrong! It can be compared to sending a group of passengers from city A to B, but every passenger travels in his own train.
+#####Correct way of sending personalized content is to use Dynamic Content syntax (check campaign_or_contact_info section) and send newsletter once to a group of people:
 
     {
         "method" : "send_newsletter",
@@ -927,10 +937,10 @@ Correct way of sending personalized content is to use Dynamic Content syntax (ch
             }
         ]
     }
-add_follow_up
-Add a follow-up to the campaign at the specific day of cycle.
 
-*JSON Request:*
+####add_follow_up
+#####Add a follow-up to the campaign at the specific day of cycle.
+######*JSON Request:*
 
     {
         "method" : "add_follow_up",
@@ -951,13 +961,14 @@ Add a follow-up to the campaign at the specific day of cycle.
     }
 #####Conditions:
 
-campaign (mandatory) – CAMPAIGN_ID obtained from get_campaigns. Follow-up will be saved in this campaign.
-from_field (optional) – FROM_FIELD_ID obtained from get_account_from_fields. It affects From header (name and email) in message. This value will be taken from campaign if not given.
-subject (mandatory) – Subject value, all mergewords should be written as GetResponse Dynamic Content syntax.
-contents (mandatory) – Allowed keys are plain and html, at least one is mandatory. All mergewords should be written as GetResponse Dynamic Content syntax.
-flags (optional) – Enables extra functionality for a message, see message flags for available values.
-day_of_cycle – Number of days between the day when a contact subscribed to a campaign and the day when the follow-up is sent. Must be unused and in the range of 0..1000.
-*JSON Response:*
+*	campaign (mandatory) – CAMPAIGN_ID obtained from get_campaigns. Follow-up will be saved in this campaign.
+*	from_field (optional) – FROM_FIELD_ID obtained from get_account_from_fields. It affects From header (name and email) in message. This value will be taken from campaign if not given.
+*	subject (mandatory) – Subject value, all mergewords should be written as GetResponse Dynamic Content syntax.
+*	contents (mandatory) – Allowed keys are plain and html, at least one is mandatory. All mergewords should be written as GetResponse Dynamic Content syntax.
+*	flags (optional) – Enables extra functionality for a message, see message flags for available values.
+*	day_of_cycle – Number of days between the day when a contact subscribed to a campaign and the day when the follow-up is sent. Must be unused and in the range of 0..1000.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -966,19 +977,13 @@ day_of_cycle – Number of days between the day when a contact subscribed to a c
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error"  : "Missing campaign"
-    }
-Following errors may be returned: Missing campaign, Missing From field, Day of cycle already used, Missing contents, Dynamic Content syntax error.
+#####Following errors may be returned: Missing campaign, Missing From field, Day of cycle already used, Missing contents, Dynamic Content syntax error.
 
-add_draft
-Add a draft of given message type to the campaign.
-Useful for autosave features.
-
-*JSON Request:*
+####add_draft
+#####Add a draft of given message type to the campaign.
+#####Useful for autosave features.
+######*JSON Request:*
 
     {
         "method" : "add_draft",
@@ -997,15 +1002,17 @@ Useful for autosave features.
             }
         ]
     }
+
 #####Conditions:
 
-campaign (mandatory) – CAMPAIGN_ID obtained from get_campaigns. Draft will be saved in this campaign.
-from_field (optional) – FROM_FIELD_ID obtained from get_account_from_fields. It affects From header (name and email) in message. This value will be taken from campaign if not given.
-subject (mandatory) – Subject value, all mergewords should be written as GetResponse Dynamic Content syntax.
-contents (mandatory) – Allowed keys are plain and html, at least one is mandatory. All mergewords should be written as GetResponse Dynamic Content syntax.
-flags (optional) – Enables extra functionality for a message, see message flags for available values.
-type – Type of draft, allowed values are newsletter and follow-up.
-*JSON Response:*
+*	campaign (mandatory) – CAMPAIGN_ID obtained from get_campaigns. Draft will be saved in this campaign.
+*	from_field (optional) – FROM_FIELD_ID obtained from get_account_from_fields. It affects From header (name and email) in message. This value will be taken from campaign if not given.
+*	subject (mandatory) – Subject value, all mergewords should be written as GetResponse Dynamic Content syntax.
+*	contents (mandatory) – Allowed keys are plain and html, at least one is mandatory. All mergewords should be written as GetResponse Dynamic Content syntax.
+*	flags (optional) – Enables extra functionality for a message, see message flags for available values.
+*	type – Type of draft, allowed values are newsletter and follow-up.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1014,20 +1021,14 @@ type – Type of draft, allowed values are newsletter and follow-up.
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error"  : "Missing campaign"
-    }
-Following errors may be returned: Missing campaign, Missing From field, Missing contents.
+#####Following errors may be returned: Missing campaign, Missing From field, Missing contents.
 
-*Hint*: Drafts can be obtained by using get_messages in draft mode.
+**Hint**: Drafts can be obtained by using get_messages in draft mode.
 
-delete_newsletter
-Delete newsletter from campaign.
-
-*JSON Request:*
+####delete_newsletter
+#####Delete newsletter from campaign.
+######*JSON Request:*
 
     {
         "method" : "delete_newsletter",
@@ -1040,8 +1041,9 @@ Delete newsletter from campaign.
     }
 #####Conditions:
 
-message (mandatory) – MESSAGE_ID obtained from get_messages or send_newsletter.
-*JSON Response:*
+*	message (mandatory) – MESSAGE_ID obtained from get_messages or send_newsletter.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1049,20 +1051,14 @@ message (mandatory) – MESSAGE_ID obtained from get_messages or send_newsletter
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error"  : "Missing message"
-    }
-Following errors may be returned: Missing message, Message is not newsletter, Message send event already passed.
+#####Following errors may be returned: Missing message, Message is not newsletter, Message send event already passed.
 
-**Warning**: You can delete only newsletters that have send_on date in future.
+**Warning**: **You can delete only newsletters that have send_on date in future.**
 
-delete_follow_up
-Delete follow-up from campaign.
-
-*JSON Request:*
+####delete_follow_up
+#####Delete follow-up from campaign.
+######*JSON Request:*
 
     {
         "method" : "delete_follow_up",
@@ -1073,10 +1069,12 @@ Delete follow-up from campaign.
             }
         ]
     }
+
 #####Conditions:
 
-message (mandatory) – MESSAGE_ID obtained from get_messages or add_follow_up.
-*JSON Response:*
+*	message (mandatory) – MESSAGE_ID obtained from get_messages or add_follow_up.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1084,18 +1082,12 @@ message (mandatory) – MESSAGE_ID obtained from get_messages or add_follow_up.
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error"  : "Missing message"
-    }
-Following errors may be returned: Missing message, Message is not follow-up.
+#####Following errors may be returned: Missing message, Message is not follow-up.
 
-set_follow_up_cycle
-Set day of cycle of existing follow-up.
-
-*JSON Request:*
+####set_follow_up_cycle
+#####Set day of cycle of existing follow-up.
+######*JSON Request:*
 
     {
         "method" : "set_follow_up_cycle",
@@ -1107,11 +1099,13 @@ Set day of cycle of existing follow-up.
             }
         ]
     }
+
 #####Conditions:
 
-message (mandatory) – MESSAGE_ID obtained from get_messages or add_follow_up.
-day_of_cycle – Number of days between the day when a contact subscribed to a campaign and the day when the follow-up is sent. Must be unused and in the range of 0..1000.
-*JSON Response:*
+*	message (mandatory) – MESSAGE_ID obtained from get_messages or add_follow_up.
+*	day_of_cycle – Number of days between the day when a contact subscribed to a campaign and the day when the follow-up is sent. Must be unused and in the range of 0..1000.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1119,18 +1113,12 @@ day_of_cycle – Number of days between the day when a contact subscribed to a c
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error"  : "Missing message"
-    }
-Following errors may be returned: Missing message, Message is not follow-up, Day of cycle already used.
+#####Following errors may be returned: Missing message, Message is not follow-up, Day of cycle already used.
 
-get_messages_amount_per_account
-Get total messages amount on your account.
-
-*JSON Request:*
+####get_messages_amount_per_account
+#####Get total messages amount on your account.
+######*JSON Request:*
 
     {
         "method" : "get_messages_amount_per_account",
@@ -1141,10 +1129,12 @@ Get total messages amount on your account.
             }
         ]
     }
+
 #####Conditions:
 
-type (optional) – Use newsletter or follow-up to narrow down count results to specific message types.
-*JSON Response:*
+*	type (optional) – Use newsletter or follow-up to narrow down count results to specific message types.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1152,10 +1142,10 @@ type (optional) – Use newsletter or follow-up to narrow down count results to 
         },
         "error" : null
     }
-get_messages_amount_per_campaign
-Get total messages amount in every campaign on your account.
 
-*JSON Request:*
+####get_messages_amount_per_campaign
+#####Get total messages amount in every campaign on your account.
+######*JSON Request:*
 
     {
         "method" : "get_messages_amount_per_campaign",
@@ -1166,10 +1156,12 @@ Get total messages amount in every campaign on your account.
             }
         ]
     }
+
 #####Conditions:
 
-type (optional) – Use newsletter or follow-up to narrow down count results to specific message types.
-*JSON Response:*
+*	type (optional) – Use newsletter or follow-up to narrow down count results to specific message types.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1182,10 +1174,10 @@ type (optional) – Use newsletter or follow-up to narrow down count results to 
         },
         "error" : null
     }
-get_contacts
-Get list of contacts from the account.
 
-*JSON Request:*
+####get_contacts
+#####Get list of contacts from the account.
+######*JSON Request:*
 
     {
         "method" : "get_contacts",
@@ -1238,22 +1230,24 @@ Get list of contacts from the account.
             }
         ]
     }
+
 #####Conditions:
 
-campaigns / get_campaigns (optional) – Search only in given campaigns. Uses OR logic. If those params are not given, search is performed in all campaigns within the account. Check IDs in #####Conditions for detailed explanation.
-name (optional) – Use text operators to narrow down search results to specific contact names.
-email (optional) – Use text operators to narrow down search results to specific contact emails.
-created_on (optional) – Use time operators to narrow down search results to specific contact creation date. Multiple operators are allowed and logic AND is used so date range can also be expressed.
-origin (optional) – Narrow down search results by contacts’ origin (subscription method). Allowed values are import, email, www, panel, leads, sale, api, forward, survey, iphone.
-cycle_day (optional) – Use numeric operators to narrow down search results to specific  days of the followup cycles assigned to the contacts. To find contacts that already got day 2 message you have to use { "GREATER" : 2 } as they have already reached that day. To find inactive contacts pass { "EQUALS" : null } condition.
-customs (optional) – Use text operators to narrow down search results to contacts having specific customs. Uses AND logic. Note that if you need OR logic you can use MATCHES operator and use alternative in regular expression. Contacts that don’t have a custom of given name are not returned in results. If custom is multivalue then “any” junction is used: condition is true if any custom value tests true according to the operator used.
-geo (optional) – Use operators to narrow down search results to specific contact geo location. Text operators are allowed for country, country_code, city. Numeric operators are allowed for latitude and longitude (values are decimal numbers, like -54.5). Uses AND logic. Contacts that don’t have a geo location data are not returned in results.
-clicks / get_clicks (optional) – Use to narrow down search results to the contacts that clicked specific links. Uses AND logic. See IDs in #####Conditions for detailed explanation.
-last_click_on (optional) – Use time operators to narrow down search results to a specific date when a contact clicked the last link. Multiple operators are allowed and logic AND is used so date range can also be expressed.
-opens / get_opens (optional) – Use to narrow down search results to contacts that opened specific messages. Uses AND logic. See IDs in #####Conditions for detailed explanation.
-last_open_on (optional) – Use time operators to narrow down search results to the specific date when a contact opened the last message. Multiple operators are allowed and logic AND is used so date range can also be expressed.
-segmentation (optional) – Allows to fetch big results in smaller packs. Split value defines the number of packs to which contacts will be split. Group defines which pack will be returned in results. For example to get all results in 10 packs call get_contacts 10 times. Set split to 10 and increase pack from 1 to 10.
-*JSON Response:*
+*	campaigns / get_campaigns (optional) – Search only in given campaigns. Uses OR logic. If those params are not given, search is performed in all campaigns within the account. Check IDs in #####Conditions for detailed explanation.
+*	name (optional) – Use text operators to narrow down search results to specific contact names.
+*	email (optional) – Use text operators to narrow down search results to specific contact emails.
+*	created_on (optional) – Use time operators to narrow down search results to specific contact creation date. Multiple operators are allowed and logic AND is used so date range can also be expressed.
+*	origin (optional) – Narrow down search results by contacts’ origin (subscription method). Allowed values are import, email, www, panel, leads, sale, api, forward, survey, iphone.
+*	cycle_day (optional) – Use numeric operators to narrow down search results to specific  days of the followup cycles assigned to the contacts. To find contacts that already got day 2 message you have to use { "GREATER" : 2 } as they have already reached that day. To find inactive contacts pass { "EQUALS" : null } condition.
+*	customs (optional) – Use text operators to narrow down search results to contacts having specific customs. Uses AND logic. Note that if you need OR logic you can use MATCHES operator and use alternative in regular expression. Contacts that don’t have a custom of given name are not returned in results. If custom is multivalue then “any” junction is used: condition is true if any custom value tests true according to the operator used.
+*	geo (optional) – Use operators to narrow down search results to specific contact geo location. Text operators are allowed for country, country_code, city. Numeric operators are allowed for latitude and longitude (values are decimal numbers, like -54.5). Uses AND logic. Contacts that don’t have a geo location data are not returned in results.
+*	clicks / get_clicks (optional) – Use to narrow down search results to the contacts that clicked specific links. Uses AND logic. See IDs in #####Conditions for detailed explanation.
+*	last_click_on (optional) – Use time operators to narrow down search results to a specific date when a contact clicked the last link. Multiple operators are allowed and logic AND is used so date range can also be expressed.
+*	opens / get_opens (optional) – Use to narrow down search results to contacts that opened specific messages. Uses AND logic. See IDs in #####Conditions for detailed explanation.
+*	last_open_on (optional) – Use time operators to narrow down search results to the specific date when a contact opened the last message. Multiple operators are allowed and logic AND is used so date range can also be expressed.
+*	segmentation (optional) – Allows to fetch big results in smaller packs. Split value defines the number of packs to which contacts will be split. Group defines which pack will be returned in results. For example to get all results in 10 packs call get_contacts 10 times. Set split to 10 and increase pack from 1 to 10.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1278,18 +1272,16 @@ segmentation (optional) – Allows to fetch big results in smaller packs. Split 
         },
         "error" : null
     }
-**Warning**: Email is unique within a campaign, but if search is performed on multiple campaigns, one email address may occur multiple times in results.
 
-*Hint*:  Segmentation does not work as pager (LIMIT x, OFFSET y behavior in SQL) and packs are “almost equal”. That means if you perform split = 10 on result that has 1000 contacts, you will get packs containing about 100 contacts.
+**Warning**: **Email is unique within a campaign, but if search is performed on multiple campaigns, one email address may occur multiple times in results.**
+**Hint**:  *Segmentation does not work as pager (LIMIT x, OFFSET y behavior in SQL) and packs are “almost equal”. That means if you perform split = 10 on result that has 1000 contacts, you will get packs containing about 100 contacts.*
+#####But segmentation has two very important properties that LIMIT x, OFFSET y approach doesn’t have:
+1.	Contacts stay in their packs forever. Contact once found in the pack 23/100 will always be located in it no matter if the list was altered . This property can be used for shard-oriented synchronization.
+2.	Packs don’t overlap. The sum of contacts in packs 1/3, 2/3 and 3/3 is the same as in search without segmentation. This property is important if you want to parallelize operation on contacts.
 
-But segmentation has two very important properties that LIMIT x, OFFSET y approach doesn’t have:
-
-Contacts stay in their packs forever. Contact once found in the pack 23/100 will always be located in it no matter if the list was altered . This property can be used for shard-oriented synchronization.
-Packs don’t overlap. The sum of contacts in packs 1/3, 2/3 and 3/3 is the same as in search without segmentation. This property is important if you want to parallelize operation on contacts.
-get_contact
-Get a single contact using CONTACT_ID.
-
-*JSON Request:*
+####get_contact
+#####Get a single contact using CONTACT_ID.
+######*JSON Request:*
 
     {
         "method" : "get_contact",
@@ -1300,10 +1292,12 @@ Get a single contact using CONTACT_ID.
             }
         ]
     }
+
 #####Conditions:
 
-contact (mandatory) – CONTACT_ID.
-*JSON Response:*
+*	contact (mandatory) – CONTACT_ID.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1319,12 +1313,12 @@ contact (mandatory) – CONTACT_ID.
         },
         "error" : null
     }
-Output has the same format as for get_contacts.
 
-set_contact_name
-Set contact name.
+#####Output has the same format as for get_contacts.
 
-*JSON Request:*
+####set_contact_name
+#####Set contact name.
+######*JSON Request:*
 
     {
         "method" : "set_contact_name",
@@ -1338,9 +1332,10 @@ Set contact name.
     }
 #####Conditions:
 
-contact (mandatory) – CONTACT_ID.
-name (mandatory) – New value of name.
-*JSON Response:*
+*	contact (mandatory) – CONTACT_ID.
+*	name (mandatory) – New value of name.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1348,18 +1343,12 @@ name (mandatory) – New value of name.
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error"  : "Missing contact"
-    }
-Following errors may be returned: Missing contact.
+#####Following errors may be returned: Missing contact.
 
-get_contact_customs
-Get list of contact customs.
-
-*JSON Request:*
+####get_contact_customs
+#####Get list of contact customs.
+######*JSON Request:*
 
     {
         "method" : "get_contact_customs",
@@ -1370,10 +1359,12 @@ Get list of contact customs.
             }
         ]
     }
+
 #####Conditions:
 
-contact (mandatory) – CONTACT_ID.
-*JSON Response:*
+*	contact (mandatory) – CONTACT_ID.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1382,19 +1373,20 @@ contact (mandatory) – CONTACT_ID.
         },
         "error" : null
     }
-*Hint*:  If custom has more than one value (multivalue) then it will be returned as an sorted array.
 
-set_contact_customs
-Set contact customs.
+**Hint**: *If custom has more than one value (multivalue) then it will be returned as an sorted array.*
 
-Custom of a given name is:
+####set_contact_customs
+#####Set contact customs.
+#####Custom of a given name is:
 
-removed if content value is null
-updated to new content value if already present
-added if not present
-Comparison is case insensitive.
+*	removed if content value is null
+*	updated to new content value if already present
+*	added if not present
 
-*JSON Request:*
+#####Comparison is case insensitive.
+
+######*JSON Request:*
 
     {
         "method" : "set_contact_customs",
@@ -1415,11 +1407,13 @@ Comparison is case insensitive.
             }
         ]
     }
+
 #####Conditions:
 
-contact (mandatory) – CONTACT_ID.
-customs (mandatory) – List of one or more customs to set. Value of name must be composed of letters, digits and underscores only.
-*JSON Response:*
+*	contact (mandatory) – CONTACT_ID.
+*	customs (mandatory) – List of one or more customs to set. Value of name must be composed of letters, digits and underscores only.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1429,42 +1423,36 @@ customs (mandatory) – List of one or more customs to set. Value of name must b
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error"  : "Missing contact"
-    }
-Following errors may be returned: Missing contact.
 
-*Hint*:  One custom name may appear multiple times in case of multivalue customs (custom must be defined as multivalue on web interface). In this case new content will be added to existing custom instead of replacing previous one.
+#####Following errors may be returned: Missing contact.
 
-*Hint*: If you want to remove every existing content value for multivalue customs then pass null as content value at the beginning of method call:
+**Hint**:  *One custom name may appear multiple times in case of multivalue customs (custom must be defined as multivalue on web interface). In this case new content will be added to existing custom instead of replacing previous one.*
+**Hint**: *If you want to remove every existing content value for multivalue customs then pass null as content value at the beginning of method call:*
 
-"customs" : [
-    {
-        "name"       : "name_1_value",
-        "content"    : null
-    },
-    {
-        "name"       : "name_1_value",
-        "content"    : "content_1_1_value"
-    },
-    {
-        "name"       : "name_1_value",
-        "content"    : "content_1_2_value"
-    },
-]
-This will clear all content values of multivalue custom and set two new ones.
+	"customs" : [
+	    {
+	        "name"       : "name_1_value",
+	        "content"    : null
+	    },
+	    {
+	        "name"       : "name_1_value",
+	        "content"    : "content_1_1_value"
+	    },
+	    {
+	        "name"       : "name_1_value",
+	        "content"    : "content_1_2_value"
+	    },
+	]
+	
+#####This will clear all content values of multivalue custom and set two new ones.
 
-**Warning**: Custom will be silently skipped if it’s multivalue and its content is not in set of allowed values declared on web interface.
+**Warning**: **Custom will be silently skipped if it’s multivalue and its content is not in set of allowed values declared on web interface.**
+**Warning**: **Custom will be silently skipped if its content does not match type declared on web interface.**
 
-**Warning**: Custom will be silently skipped if its content does not match type declared on web interface.
-
-get_contact_geoip
-Get contact geo location based on IP address from which the subscription was processed.
-
-*JSON Request:*
+####get_contact_geoip
+#####Get contact geo location based on IP address from which the subscription was processed.
+######*JSON Request:*
 
     {
         "method" : "get_contact_geoip",
@@ -1475,10 +1463,12 @@ Get contact geo location based on IP address from which the subscription was pro
             }
         ]
     }
+
 #####Conditions:
 
-contact (mandatory) – CONTACT_ID.
-*JSON Response:*
+*	contact (mandatory) – CONTACT_ID.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1495,12 +1485,12 @@ contact (mandatory) – CONTACT_ID.
         },
         "error" : null
     }
-**Warning**: Geo location data is based on the IP address from which a contact subscribed, so not every contact has it (for example imported contacts do not have this information) and for some ISPs it points to where the gateway of this ISP is.
 
-get_contact_opens
-List dates when the messages were opened by contacts.
+**Warning**: **Geo location data is based on the IP address from which a contact subscribed, so not every contact has it (for example imported contacts do not have this information) and for some ISPs it points to where the gateway of this ISP is.**
 
-*JSON Request:*
+####get_contact_opens
+#####List dates when the messages were opened by contacts.
+######*JSON Request:*
 
     {
         "method" : "get_contact_opens",
@@ -1511,10 +1501,12 @@ List dates when the messages were opened by contacts.
             }
         ]
     }
+
 #####Conditions:
 
-contact (mandatory) – CONTACT_ID.
-*JSON Response:*
+*	contact (mandatory) – CONTACT_ID.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1523,14 +1515,14 @@ contact (mandatory) – CONTACT_ID.
         },
         "error" : null
     }
-Note that if a contact opened the same message multiple times, only the oldest date is listed.
 
-*Hint*: You can use get_message to obtain more info about every message.
+#####Note that if a contact opened the same message multiple times, only the oldest date is listed.
 
-get_contact_clicks
-List dates when the links in messages were clicked by contacts.
+**Hint**: *You can use get_message to obtain more info about every message.*
 
-*JSON Request:*
+####get_contact_clicks
+#####List dates when the links in messages were clicked by contacts.
+######*JSON Request:*
 
     {
         "method" : "get_contact_clicks",
@@ -1541,10 +1533,12 @@ List dates when the links in messages were clicked by contacts.
             }
         ]
     }
+
 #####Conditions:
 
-contact (mandatory) – CONTACT_ID.
-*JSON Response:*
+*	contact (mandatory) – CONTACT_ID.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1553,14 +1547,14 @@ contact (mandatory) – CONTACT_ID.
         },
         "error" : null
     }
-Note that if a contact clicked the same link multiple times only oldest date is listed.
 
-*Hint*: You can use get_link to get more info about every link.
+#####Note that if a contact clicked the same link multiple times only oldest date is listed.
 
-set_contact_cycle
-Place a contact on a desired day of the follow-up cycle or deactivate a contact.
+**Hint**: *You can use get_link to get more info about every link.*
 
-*JSON Request:*
+####set_contact_cycle
+#####Place a contact on a desired day of the follow-up cycle or deactivate a contact.
+######*JSON Request:*
 
     {
         "method" : "set_contact_cycle",
@@ -1572,11 +1566,13 @@ Place a contact on a desired day of the follow-up cycle or deactivate a contact.
             }
         ]
     }
+
 #####Conditions:
 
-contact (mandatory) – CONTACT_ID.
-cycle_day (mandatory) – New value of cycle day, must be in the range of 0..1000. If cycle_day is null it deactivates contact.
-*JSON Response:*
+*	contact (mandatory) – CONTACT_ID.
+*	cycle_day (mandatory) – New value of cycle day, must be in the range of 0..1000. If cycle_day is null it deactivates contact.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1584,20 +1580,14 @@ cycle_day (mandatory) – New value of cycle day, must be in the range of 0..100
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error" : "Missing contact"
-    }
-Following errors may be returned: Missing contact.
+#####Following errors may be returned: Missing contact.
 
-**Warning**: Do not confuse the day of cycle with position in cycle. For example if a follow-up cycle has messages set to days 1, 2, 4, 8, 16 and you set cycle_day = 4 then a contact will get message from day 4 and not message from day 8 because it’s 4th in a row.
+**Warning**: **Do not confuse the day of cycle with position in cycle. For example if a follow-up cycle has messages set to days 1, 2, 4, 8, 16 and you set cycle_day = 4 then a contact will get message from day 4 and not message from day 8 because it’s 4th in a row.**
 
-add_contact
-Add contact to the list.
-
-*JSON Request:*
+####add_contact
+#####Add contact to the list.
+######*JSON Request:*
 
     {
         "method" : "add_contact",
@@ -1623,16 +1613,18 @@ Add contact to the list.
             }
         ]
     }
+
 #####Conditions:
 
-campaign (mandatory) – CAMPAIGN_ID obtained from get_campaigns.
-action (optional) – Allowed modes are standard, insert, update. If standard mode is chosen then a new contact will be added if not already present in a given campaign otherwise existing contact will be updated including name change and customs list merge. If insert mode is chosen then a contact will be added if it doesn’t exist in a given campaign but no updates will be performed otherwise. If update is chosen then a contact will be updated if it exists in a given campaign but no inserts will be performed otherwise. Default is standard.
-name (optional) – Name value.
-email (mandatory) – Email value.
-cycle_day (optional) – Insert contact on a given day at the follow-up cycle. Value of 0 means the beginning of the cycle. Lack of this param means that a contact will not be inserted into cycle.
-ip (optional) – Contact’s IP address used for geo location. Must be given in dotted decimal format.
-customs (optional) – List of contact customs. In case of contact update new customs will be inserted and the existing ones will be updated with the new values. Customs not provided on this list will not be removed. Custom name must be composed using lowercase letters, digits and underscores only.
-*JSON Response:*
+*	campaign (mandatory) – CAMPAIGN_ID obtained from get_campaigns.
+*	action (optional) – Allowed modes are standard, insert, update. If standard mode is chosen then a new contact will be added if not already present in a given campaign otherwise existing contact will be updated including name change and customs list merge. If insert mode is chosen then a contact will be added if it doesn’t exist in a given campaign but no updates will be performed otherwise. If update is chosen then a contact will be updated if it exists in a given campaign but no inserts will be performed otherwise. Default is standard.
+*	name (optional) – Name value.
+*	email (mandatory) – Email value.
+*	cycle_day (optional) – Insert contact on a given day at the follow-up cycle. Value of 0 means the beginning of the cycle. Lack of this param means that a contact will not be inserted into cycle.
+*	ip (optional) – Contact’s IP address used for geo location. Must be given in dotted decimal format.
+*	customs (optional) – List of contact customs. In case of contact update new customs will be inserted and the existing ones will be updated with the new values. Customs not provided on this list will not be removed. Custom name must be composed using lowercase letters, digits and underscores only.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1640,25 +1632,16 @@ customs (optional) – List of contact customs. In case of contact update new cu
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error" : "Contact already queued for target campaign"
+#####Following errors may be returned: Invalid email syntax, Missing campaign, Contact already queued for target campaign.
 
-    }
-Following errors may be returned: Invalid email syntax, Missing campaign, Contact already queued for target campaign.
+**Warning**: **Adding contact is not an instant action. It will appear on your list after validation or after validation+confirming (in case of double-optin procedure).**
+**Hint**: *It’s legal to add a contact already existing in the campaign (check action param for more details) but it’s illegal to have the same email added to queue twice.*
+**Hint**: *Optin setting is locked to double optin by default, if you want to add contacts already confirmed please contact us using this form and provide us with your campaign name and the description of your business model. We will set single optin for this campaign after short verification.*
 
-**Warning**: Adding contact is not an instant action. It will appear on your list after validation or after validation+confirming (in case of double-optin procedure).
-
-*Hint*: It’s legal to add a contact already existing in the campaign (check action param for more details) but it’s illegal to have the same email added to queue twice.
-
-*Hint*: Optin setting is locked to double optin by default, if you want to add contacts already confirmed please contact us using this form and provide us with your campaign name and the description of your business model. We will set single optin for this campaign after short verification.
-
-move_contact
-Move contact from one campaign to another.
-
-*JSON Request:*
+####move_contact
+#####Move contact from one campaign to another.
+######*JSON Request:*
 
     {
         "method" : "move_contact",
@@ -1670,11 +1653,13 @@ Move contact from one campaign to another.
             }
         ]
     }
+
 #####Conditions:
 
-contact (mandatory) – CONTACT_ID.
-campaign (mandatory) – CAMPAIGN_ID to which contact should be moved to.
-*JSON Response:*
+*	contact (mandatory) – CONTACT_ID.
+*	campaign (mandatory) – CAMPAIGN_ID to which contact should be moved to.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1682,18 +1667,12 @@ campaign (mandatory) – CAMPAIGN_ID to which contact should be moved to.
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error" : "Missing contact"
-    }
-Following errors may be returned: Missing contact, Missing campaign, Contact already exists in target campaign (also thrown if source and target campaigns are the same).
+#####Following errors may be returned: Missing contact, Missing campaign, Contact already exists in target campaign (also thrown if source and target campaigns are the same).
 
-delete_contact
-Delete contact.
-
-*JSON Request:*
+####delete_contact
+#####Delete contact.
+######*JSON Request:*
 
     {
         "method" : "delete_contact",
@@ -1704,10 +1683,12 @@ Delete contact.
             }
         ]
     }
+
 #####Conditions:
 
-contact (mandatory) – CONTACT_ID.
-*JSON Response:*
+*	contact (mandatory) – CONTACT_ID.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1715,18 +1696,12 @@ contact (mandatory) – CONTACT_ID.
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error"  : "Missing contact"
-    }
-**Warning**: This operation cannot be undone.
+**Warning**: **This operation cannot be undone.**
 
-get_contacts_deleted
-Get deleted contacts.
-
-*JSON Request:*
+####get_contacts_deleted
+#####Get deleted contacts.
+######*JSON Request:*
 
     {
         "method" : "get_contacts_deleted",
@@ -1750,15 +1725,17 @@ Get deleted contacts.
             }
         ]
     }
+
 #####Conditions:
 
-campaigns / get_campaigns (optional) – Search only in given campaigns. Uses OR logic. If those params are not given search is performed in all campaigns on the account. Check IDs in #####Conditions for detailed explanation.
-messages / get_messages (optional) – Search only contacts removed from given messages, this info is known for example if contact clicked unsubscribe link. Uses OR logic. Check IDs in #####Conditions for detailed explanation.
-email (optional) – Use text operators to narrow down search results to specific contact emails.
-reason (optional) – Narrow down search results only to contacts removed due to specific reason, allowed values are: unsubscribe, user, support, automation, complaint, blacklisted, api, bounce, other.
-created_on (optional) – Use time operators to narrow down search results to specific contact creation date. Multiple operators are allowed and logic AND is used so date range can also be expressed.
-deleted_on (optional) – Use time operators to narrow down search results to specific contact deletion date. Multiple operators are allowed and logic AND is used so date range can also be expressed.
-*JSON Response:*
+*	campaigns / get_campaigns (optional) – Search only in given campaigns. Uses OR logic. If those params are not given search is performed in all campaigns on the account. Check IDs in #####Conditions for detailed explanation.
+*	messages / get_messages (optional) – Search only contacts removed from given messages, this info is known for example if contact clicked unsubscribe link. Uses OR logic. Check IDs in #####Conditions for detailed explanation.
+*	email (optional) – Use text operators to narrow down search results to specific contact emails.
+*	reason (optional) – Narrow down search results only to contacts removed due to specific reason, allowed values are: unsubscribe, user, support, automation, complaint, blacklisted, api, bounce, other.
+*	created_on (optional) – Use time operators to narrow down search results to specific contact creation date. Multiple operators are allowed and logic AND is used so date range can also be expressed.
+*	deleted_on (optional) – Use time operators to narrow down search results to specific contact deletion date. Multiple operators are allowed and logic AND is used so date range can also be expressed.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1788,16 +1765,14 @@ deleted_on (optional) – Use time operators to narrow down search results to sp
         },
         "error" : null
     }
-**Warning**: If a contact was added and removed multiple times from the same campaign it is presented only once in results with newest deleted_on date.
 
-*Hint*: Possible reasons are: unsubscribe, user, support, automation, complaint, blacklisted, api, bounce, other, other.
+**Warning**: **If a contact was added and removed multiple times from the same campaign it is presented only once in results with newest deleted_on date.**
+**Hint**: *Possible reasons are: unsubscribe, user, support, automation, complaint, blacklisted, api, bounce, other, other.*
+**Warning**: **Unsubscribe link allows contact to unsubscribe from multiple campaigns, even if message was not sent from those campaigns or to contact in those campaigns.**
 
-**Warning**: Unsubscribe link allows contact to unsubscribe from multiple campaigns, even if message was not sent from those campaigns or to contact in those campaigns.
-
-get_contacts_subscription_stats
-Get contacts subscription stats aggregated by date, campaign and contact’s origin.
-
-*JSON Request:*
+####get_contacts_subscription_stats
+#####Get contacts subscription stats aggregated by date, campaign and contact’s origin.
+######*JSON Request:*
 
     {
         "method" : "get_contacts_subscription_stats",
@@ -1813,11 +1788,13 @@ Get contacts subscription stats aggregated by date, campaign and contact’s ori
             }
         ]
     }
+
 #####Conditions:
 
-campaigns / get_campaigns (optional) – Get statistics only for given campaigns. Uses OR logic. If those params are not given statistict are returned from all campaigns on the account. Check IDs in #####Conditions for detailed explanation.
-created_on (optional) – Use time operators to narrow down search results to specific contact creation date. Multiple operators are allowed and logic AND is used so date range can also be expressed.
-*JSON Response:*
+*	campaigns / get_campaigns (optional) – Get statistics only for given campaigns. Uses OR logic. If those params are not given statistict are returned from all campaigns on the account. Check IDs in #####Conditions for detailed explanation.
+*	created_on (optional) – Use time operators to narrow down search results to specific contact creation date. Multiple operators are allowed and logic AND is used so date range can also be expressed.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1876,12 +1853,12 @@ created_on (optional) – Use time operators to narrow down search results to sp
         }
         "error" : null
     }
-**Warning**: If  there was no subscription for any contact’s origin in given day then this day is not returned.
 
-get_contacts_amount_per_account
-Get total contacts amount on your account.
+**Warning**: **If  there was no subscription for any contact’s origin in given day then this day is not returned.**
 
-*JSON Request:*
+####get_contacts_amount_per_account
+#####Get total contacts amount on your account.
+######*JSON Request:*
 
     {
         "method" : "get_contacts_amount_per_account",
@@ -1889,7 +1866,8 @@ Get total contacts amount on your account.
             "your_api_key_here",
         ]
     }
-*JSON Response:*
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1897,10 +1875,10 @@ Get total contacts amount on your account.
         },
         "error" : null
     }
-get_contacts_amount_per_campaign
-Get total contacts amount in every campaign on your account.
 
-*JSON Request:*
+####get_contacts_amount_per_campaign
+#####Get total contacts amount in every campaign on your account.
+######*JSON Request:*
 
     {
         "method" : "get_contacts_amount_per_campaign",
@@ -1908,7 +1886,8 @@ Get total contacts amount in every campaign on your account.
             "your_api_key_here",
         ]
     }
-*JSON Response:*
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1922,10 +1901,10 @@ Get total contacts amount in every campaign on your account.
         },
         "error" : null
     }
-get_links
-Get clicktracked links.
 
-*JSON Request:*
+####get_links
+#####Get clicktracked links.
+######*JSON Request:*
 
     {
         "method" : "get_links",
@@ -1938,11 +1917,13 @@ Get clicktracked links.
             }
         ]
     }
+
 #####Conditions:
 
-messages / get_messages (optional) – Search only in given messages. Uses OR logic. If those params are not given search is performed in all messages on the account. Check IDs in #####Conditions for detailed explanation.
-url (optional) – Use text operators to narrow down search results to specific URL addresses.
-*JSON Response:*
+*	messages / get_messages (optional) – Search only in given messages. Uses OR logic. If those params are not given search is performed in all messages on the account. Check IDs in #####Conditions for detailed explanation.
+*	url (optional) – Use text operators to narrow down search results to specific URL addresses.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1961,14 +1942,13 @@ url (optional) – Use text operators to narrow down search results to specific 
         },
         "error" : null
     }
-**Warning**: Links won’t be visible if the message that contains them didn’t have clicktracking enabled at the time of sending.
 
-*Hint*: If a message was edited all links are returned in results, not only the current ones.
+**Warning**: **Links won’t be visible if the message that contains them didn’t have clicktracking enabled at the time of sending.**
+**Hint**: *If a message was edited all links are returned in results, not only the current ones.*
 
-get_link
-Get single clicktracked link using LINK_ID.
-
-*JSON Request:*
+####get_link
+#####Get single clicktracked link using LINK_ID.
+######*JSON Request:*
 
     {
         "method" : "get_link",
@@ -1979,7 +1959,8 @@ Get single clicktracked link using LINK_ID.
             }
         ]
     }
-*JSON Response:*
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -1992,12 +1973,12 @@ Get single clicktracked link using LINK_ID.
         },
         "error" : null
     }
-Output has the same format as for get_links.
 
-get_account_blacklist
-Get blacklist masks on account level.
+#####Output has the same format as for get_links.
 
-*JSON Request:*
+####get_account_blacklist
+#####Get blacklist masks on account level.
+######*JSON Request:*
 
     {
         "method" : "get_account_blacklist",
@@ -2005,7 +1986,8 @@ Get blacklist masks on account level.
             "your_api_key_here"
         ]
     }
-*JSON Response:*
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -2014,19 +1996,20 @@ Get blacklist masks on account level.
         },
         "error" : null
     }
-*Hint*: Format of mask can be:
 
-whole email  – xxx@yyy.zz
-local part of email- xxx@
-host part of email – @yyy.zz
-MD5 hash of email – d6dba89e8479a7049d2d7b2e5b6528ec
-ISP name – #yahoo (note the # on the beginning)
-**Warning**: According to this FAQ MD5 hash should be generated from lowercased email, check “Why do I have to normalize email addresses prior to encrypting?” section.
+**Hint**: *Format of mask can be:*
 
-add_account_blacklist
-Adds blacklist mask on account level.
+*	*whole email  – xxx@yyy.zz*
+*	*local part of email- xxx@*
+*	*host part of email – @yyy.zz*
+*	*MD5 hash of email – d6dba89e8479a7049d2d7b2e5b6528ec*
+*	*ISP name – #yahoo (note the # on the beginning)*
 
-*JSON Request:*
+**Warning**: **According to this FAQ MD5 hash should be generated from lowercased email, check “Why do I have to normalize email addresses prior to encrypting?” section.**
+
+####add_account_blacklist
+#####Adds blacklist mask on account level.
+######*JSON Request:*
 
     {
         "method" : "add_account_blacklist",
@@ -2037,10 +2020,12 @@ Adds blacklist mask on account level.
             }
         ]
     }
+
 #####Conditions:
 
-mask (mandatory) – Mask to blacklist, check blacklist mask for available formats.
-*JSON Response:*
+*	mask (mandatory) – Mask to blacklist, check blacklist mask for available formats.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -2048,18 +2033,12 @@ mask (mandatory) – Mask to blacklist, check blacklist mask for available forma
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error"  : "Cannot set mask"
-    }
-Following errors may be returned: Cannot set mask (some masks are forbidden to manage), Invalid mask syntax.
+#####Following errors may be returned: Cannot set mask (some masks are forbidden to manage), Invalid mask syntax.
 
-delete_account_blacklist
-Delete blacklist mask on account level.
-
-*JSON Request:*
+####delete_account_blacklist
+#####Delete blacklist mask on account level.
+######*JSON Request:*
 
     {
         "method" : "delete_account_blacklist",
@@ -2070,10 +2049,12 @@ Delete blacklist mask on account level.
             }
         ]
     }
+
 #####Conditions:
 
-mask (mandatory) – Mask to remove from blacklist, check blacklist masks for available formats.
-*JSON Response:*
+*	mask (mandatory) – Mask to remove from blacklist, check blacklist masks for available formats.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -2081,18 +2062,12 @@ mask (mandatory) – Mask to remove from blacklist, check blacklist masks for av
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error"  : "Cannot set mask"
-    }
-Following errors may be returned: Cannot set mask (some masks are forbidden to manage), Invalid mask syntax, Missing mask.
+#####Following errors may be returned: Cannot set mask (some masks are forbidden to manage), Invalid mask syntax, Missing mask.
 
-get_campaign_blacklist
-Get blacklist masks on campaign level.
-
-*JSON Request:*
+####get_campaign_blacklist
+#####Get blacklist masks on campaign level.
+######*JSON Request:*
 
     {
         "method" : "get_campaign_blacklist",
@@ -2103,10 +2078,12 @@ Get blacklist masks on campaign level.
             }
         ]
     }
+
 #####Conditions:
 
-campaign (mandatory) – CAMPAIGN_ID.
-*JSON Response:*
+*	campaign (mandatory) – CAMPAIGN_ID.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -2115,19 +2092,12 @@ campaign (mandatory) – CAMPAIGN_ID.
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error"  : "Missing campaign"
+**Hint**: *Check blacklist masks for available formats.*
 
-    }
-*Hint*: Check blacklist masks for available formats.
-
-add_campaign_blacklist
-Adds blacklist mask on campaign level.
-
-*JSON Request:*
+####add_campaign_blacklist
+#####Adds blacklist mask on campaign level.
+######*JSON Request:*
 
     {
         "method" : "add_campaign_blacklist",
@@ -2139,11 +2109,13 @@ Adds blacklist mask on campaign level.
             }
         ]
     }
+
 #####Conditions:
 
-campaign (mandatory) – CAMPAIGN_ID.
-mask (mandatory) – Mask to blacklist, check blacklist masks for available formats.
-*JSON Response:*
+*	campaign (mandatory) – CAMPAIGN_ID.
+*	mask (mandatory) – Mask to blacklist, check blacklist masks for available formats.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -2151,18 +2123,12 @@ mask (mandatory) – Mask to blacklist, check blacklist masks for available form
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error"  : "Cannot set mask"
-    }
-Following errors may be returned: Missing campaign, Cannot set mask (some masks are forbidden to manage), Invalid mask syntax.
+#####Following errors may be returned: Missing campaign, Cannot set mask (some masks are forbidden to manage), Invalid mask syntax.
 
-delete_campaign_blacklist
-Delete blacklist mask on campaign level.
-
-*JSON Request:*
+####delete_campaign_blacklist
+#####Delete blacklist mask on campaign level.
+######*JSON Request:*
 
     {
         "method" : "delete_campaign_blacklist",
@@ -2174,11 +2140,13 @@ Delete blacklist mask on campaign level.
             }
         ]
     }
+
 #####Conditions:
 
-campaign (mandatory) – CAMPAIGN_ID.
-mask (mandatory) – Mask to remove from blacklist, check blacklist masks for available formats.
-*JSON Response:*
+*	campaign (mandatory) – CAMPAIGN_ID.
+*	mask (mandatory) – Mask to remove from blacklist, check blacklist masks for available formats.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -2186,18 +2154,12 @@ mask (mandatory) – Mask to remove from blacklist, check blacklist masks for av
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error"  : "Cannot set mask"
-    }
-Following errors may be returned: Missing campaign, Cannot set mask (some masks are forbidden to manage), Invalid mask syntax, Missing mask.
+#####Following errors may be returned: Missing campaign, Cannot set mask (some masks are forbidden to manage), Invalid mask syntax, Missing mask.
 
-get_suppressions
-Get list of defined suppression lists on your account.
-
-*JSON Request:*
+####get_suppressions
+#####Get list of defined suppression lists on your account.
+######*JSON Request:*
 
     {
         "method" : "get_suppressions",
@@ -2205,7 +2167,8 @@ Get list of defined suppression lists on your account.
             "your_api_key_here"
         ]
     }
-*JSON Response:*
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -2220,10 +2183,10 @@ Get list of defined suppression lists on your account.
         },
         "error" : null
     }
-get_suppression
-Get single suppression using SUPPRESSION_ID.
 
-*JSON Request:*
+####get_suppression
+#####Get single suppression using SUPPRESSION_ID.
+######*JSON Request:*
 
     {
         "method" : "get_suppression",
@@ -2234,10 +2197,12 @@ Get single suppression using SUPPRESSION_ID.
             }
         ]
     }
+
 #####Conditions:
 
-suppression (mandatory) – SUPPRESSION_ID .
-*JSON Response:*
+*	suppression (mandatory) – SUPPRESSION_ID .
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -2248,14 +2213,13 @@ suppression (mandatory) – SUPPRESSION_ID .
         },
         "error" : null
     }
-Output has the same format as for get_suppressions.
 
-add_suppression
-Adds suppression list to your account.
+#####Output has the same format as for get_suppressions.
 
-This method registers named container for masks, which can be added using add_suppression_skiplist.
-
-*JSON Request:*
+####add_suppression
+#####Adds suppression list to your account.
+#####This method registers named container for masks, which can be added using add_suppression_skiplist.
+######*JSON Request:*
 
     {
         "method" : "add_suppression",
@@ -2266,10 +2230,12 @@ This method registers named container for masks, which can be added using add_su
             }
         ]
     }
+
 #####Conditions:
 
-name (mandatory) – Name of your suppression list, must be unique within account.
-*JSON Response:*
+*	name (mandatory) – Name of your suppression list, must be unique within account.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -2278,18 +2244,12 @@ name (mandatory) – Name of your suppression list, must be unique within accoun
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error"  : "Name already used"
-    }
-Following errors may be returned: Name already used.
+#####Following errors may be returned: Name already used.
 
-delete_suppression
-Delete suppression list from your account.
-
-*JSON Request:*
+####delete_suppression
+#####Delete suppression list from your account.
+######*JSON Request:*
 
     {
         "method" : "delete_suppression",
@@ -2300,10 +2260,12 @@ Delete suppression list from your account.
             }
         ]
     }
+
 #####Conditions:
 
-suppression (mandatory) – SUPPRESSION_ID .
-*JSON Response:*
+*	suppression (mandatory) – SUPPRESSION_ID .
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -2311,24 +2273,16 @@ suppression (mandatory) – SUPPRESSION_ID .
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error"  : "Missing suppression"
-    }
-Following errors may be returned: Missing suppression.
+#####Following errors may be returned: Missing suppression.
 
-**Warning**: Every mask defined within this suppression will be lost.
+**Warning**: **Every mask defined within this suppression will be lost.**
+**Warning**: **Every queued message that uses this suppression will be send as planned, but contact emails won’t be filtered using masks from this suppression.**
 
-**Warning**: Every queued message that uses this suppression will be send as planned, but contact emails won’t be filtered using masks from this suppression.
-
-get_suppression_skiplist
-Skiplist is a set of masks for suppression.
-
-If contact’s email address matches any of those masks in message that uses this suppression then it will be skipped.
-
-*JSON Request:*
+####get_suppression_skiplist
+#####Skiplist is a set of masks for suppression.
+#####If contact’s email address matches any of those masks in message that uses this suppression then it will be skipped.
+######*JSON Request:*
 
     {
         "method" : "get_suppression_skiplist",
@@ -2339,10 +2293,12 @@ If contact’s email address matches any of those masks in message that uses thi
             }
         ]
     }
+
 #####Conditions:
 
-suppression (mandatory) – SUPPRESSION_ID obtained from get_suppressions.
-*JSON Response:*
+*	suppression (mandatory) – SUPPRESSION_ID obtained from get_suppressions.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -2354,20 +2310,14 @@ suppression (mandatory) – SUPPRESSION_ID obtained from get_suppressions.
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error"  : "Missing suppression"
-    }
-Following errors may be returned: Missing suppression.
+#####Following errors may be returned: Missing suppression.
 
-*Hint*: Check suppression masks for available formats.
+**Hint**: *Check suppression masks for available formats.*
 
-add_suppression_skiplist
-Add mask to a set of masks for suppression.
-
-*JSON Request:*
+####add_suppression_skiplist
+#####Add mask to a set of masks for suppression.
+######*JSON Request:*
 
     {
         "method" : "add_suppression_skiplist",
@@ -2379,11 +2329,13 @@ Add mask to a set of masks for suppression.
             }
         ]
     }
+
 #####Conditions:
 
-suppression (mandatory) – SUPPRESSION_ID obtained from get_suppressions.
-mask (mandatory) – Mask to skip, check suppression masks for available formats.
-*JSON Response:*
+*	suppression (mandatory) – SUPPRESSION_ID obtained from get_suppressions.
+*	mask (mandatory) – Mask to skip, check suppression masks for available formats.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -2391,18 +2343,12 @@ mask (mandatory) – Mask to skip, check suppression masks for available formats
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error"  : "Missing suppression"
-    }
-Following errors may be returned: Missing suppression, Invalid mask syntax.
+#####Following errors may be returned: Missing suppression, Invalid mask syntax.
 
-delete_suppression_skiplist
-Delete mask from a set of masks for suppression.
-
-*JSON Request:*
+####delete_suppression_skiplist
+#####Delete mask from a set of masks for suppression.
+######*JSON Request:*
 
     {
         "method" : "delete_suppression_skiplist",
@@ -2414,11 +2360,13 @@ Delete mask from a set of masks for suppression.
             }
         ]
     }
+
 #####Conditions:
 
-suppression (mandatory) – SUPPRESSION_ID obtained from get_suppressions.
-mask (mandatory) – Mask to delete, check suppression masks for available formats.
-*JSON Response:*
+*	suppression (mandatory) – SUPPRESSION_ID obtained from get_suppressions.
+*	mask (mandatory) – Mask to delete, check suppression masks for available formats.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -2426,18 +2374,14 @@ mask (mandatory) – Mask to delete, check suppression masks for available forma
         },
         "error" : null
     }
-or in case of failure
 
-    {
-        "result" : null,
-        "error"  : "Missing suppression"
-    }
-Following errors may be returned: Missing suppression, Invalid mask syntax, Missing mask.
+#####Following errors may be returned: Missing suppression, Invalid mask syntax, Missing mask.
 
-**Warning**: If any queued message uses this suppression then it will be send as planned, but contact emails won’t be filtered using this masks from this suppression.
+**Warning**: **If any queued message uses this suppression then it will be send as planned, but contact emails won’t be filtered using this masks from this suppression.**
 
-get_confirmation_subjects
-Get list of available subjects for confirmation messages. They can be used in campaign settings. *JSON Request:*
+####get_confirmation_subjects
+#####Get list of available subjects for confirmation messages. They can be used in campaign settings. *JSON Request:*
+######*JSON Request:*
 
     {
         "method" : "get_confirmation_subjects",
@@ -2448,10 +2392,12 @@ Get list of available subjects for confirmation messages. They can be used in ca
             }
         ]
     }
+
 #####Conditions:
 
-language_code (optional) – Use text operators to narrow down search results to specific languages. List of available ISO 639-1 (2-letter) codes is available here.
-*JSON Response:*
+*	language_code (optional) – Use text operators to narrow down search results to specific languages. List of available ISO 639-1 (2-letter) codes is available here.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -2466,10 +2412,10 @@ language_code (optional) – Use text operators to narrow down search results to
         },
         "error" : null
     }
-get_confirmation_subject
-Get single subject for confirmation message using CONFIRMATION_SUBJECT_ID.
 
-*JSON Request:*
+####get_confirmation_subject
+#####Get single subject for confirmation message using CONFIRMATION_SUBJECT_ID.
+######*JSON Request:*
 
     {
         "method" : "get_confirmation_subject",
@@ -2480,10 +2426,12 @@ Get single subject for confirmation message using CONFIRMATION_SUBJECT_ID.
             }
         ]
     }
+
 #####Conditions:
 
-confirmation_subject (mandatory) – CONFIRMATION_SUBJECT_ID .
-*JSON Response:*
+*	confirmation_subject (mandatory) – CONFIRMATION_SUBJECT_ID .
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -2494,12 +2442,12 @@ confirmation_subject (mandatory) – CONFIRMATION_SUBJECT_ID .
         },
         "error" : null
     }
-Output has the same format as for get_confirmation_subjects.
 
-get_confirmation_bodies
-Get list of available bodies for confirmation messages. They can be used in campaign settings.
+#####Output has the same format as for get_confirmation_subjects.
 
-*JSON Request:*
+####get_confirmation_bodies
+#####Get list of available bodies for confirmation messages. They can be used in campaign settings.
+######*JSON Request:*
 
     {
         "method" : "get_confirmation_bodies",
@@ -2510,10 +2458,12 @@ Get list of available bodies for confirmation messages. They can be used in camp
             }
         ]
     }
+
 #####Conditions:
 
-language_code (optional) – Use text operators to narrow down search results to specific languages. List of available ISO 639-1 (2-letter) codes is available here.
-*JSON Response:*
+*	language_code (optional) – Use text operators to narrow down search results to specific languages. List of available ISO 639-1 (2-letter) codes is available here.
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -2530,10 +2480,10 @@ language_code (optional) – Use text operators to narrow down search results to
         },
         "error" : null
     }
-get_confirmation_body
-Get single body for confirmation message using CONFIRMATION_BODY_ID.
 
-*JSON Request:*
+####get_confirmation_body
+#####Get single body for confirmation message using CONFIRMATION_BODY_ID.
+######*JSON Request:*
 
     {
         "method" : "get_confirmation_body",
@@ -2544,10 +2494,12 @@ Get single body for confirmation message using CONFIRMATION_BODY_ID.
             }
         ]
     }
+
 #####Conditions:
 
-confirmation_body (mandatory) – CONFIRMATION_BODY_ID .
-*JSON Response:*
+*	confirmation_body (mandatory) – CONFIRMATION_BODY_ID .
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -2559,23 +2511,27 @@ confirmation_body (mandatory) – CONFIRMATION_BODY_ID .
         },
         "error" : null
     }
-Output has the same format as for get_confirmation_bodies.
 
-OPERATORS
-There may be several types of operators in method #####Conditions.
+#####Output has the same format as for get_confirmation_bodies.
 
-Text
-EQUALS, NOT_EQUALS – Compare text literally. Case insensitive.
-CONTAINS, NOT_CONTAINS – Compare text with wildchars. Use % for any string and ? for one character. Case insensitive.
-MATCHES – Compare using regular expression. Syntax explained here.
-Numeric
-LESS, LESS_OR_EQUALS, EQUALS, GREATER_OR_EQUALS, GREATER – Compare numbers. Use . (dot) as decimal part separator if needed.
-Time
-FROM, TO, AT – Compare dates in YYYY-MM-DD format.
-**Warning**: Operators must be UPPERCASED.
+##OPERATORS
+####There may be several types of operators in method **Conditions**.
 
-IDs IN #####Conditions
-In many methods IDs may be passed to #####Conditions. Method get_messages will be used as an example of how to do it.
+#####Text
+*	EQUALS, NOT_EQUALS – Compare text literally. Case insensitive.
+*	CONTAINS, NOT_CONTAINS – Compare text with wildchars. Use % for any string and ? for one character. Case insensitive.
+*	MATCHES – Compare using regular expression. Syntax explained here.
+
+#####Numeric
+*	LESS, LESS_OR_EQUALS, EQUALS, GREATER_OR_EQUALS, GREATER – Compare numbers. Use . (dot) as decimal part separator if needed.
+
+#####Time
+*	FROM, TO, AT – Compare dates in YYYY-MM-DD format.
+
+**Warning**: **Operators must be UPPERCASED.**
+
+##IDs IN **Conditions**
+####In many methods IDs may be passed to **Conditions**. Method get_messages will be used as an example of how to do it.
 
     {
         "method" : "get_messages",
@@ -2588,21 +2544,22 @@ In many methods IDs may be passed to #####Conditions. Method get_messages will b
             }
         ]
     }
-Method expects a list of campaigns in #####Conditions to narrow down search results.
 
-Those campaigns may be given as an array of CAMPAIGN_ID values obtained from get_campaigns.
+#####Method expects a list of campaigns in **Conditions** to narrow down search results.
+#####Those campaigns may be given as an array of CAMPAIGN_ID values obtained from get_campaigns.
 
     "campaigns" : [ "4b1b5", "b35f2b" ]
-It will return messages from those two specific campaigns.
 
-But sometimes it is faster/easier to nest get_campaigns #####Conditions in get_messages method.
+#####It will return messages from those two specific campaigns.
+#####But sometimes it is faster/easier to nest get_campaigns **Conditions** in get_messages method.
 
     "get_campaigns" : {
         "name" : { "CONTAINS" : "my_campaign_%" }
     }
-It will return messages from campaigns that have name beginning with my_campaign_. Pretty easy, isn’t it?
 
-*Hint*: In this case you can provide only campaigns condition or only get_campaigns condition or … both.
+#####It will return messages from campaigns that have name beginning with my_campaign_. Pretty easy, isn’t it?
+
+**Hint**: *In this case you can provide only campaigns condition or only get_campaigns condition or … both.*
 
     {
         "method" : "get_messages",
@@ -2616,12 +2573,13 @@ It will return messages from campaigns that have name beginning with my_campaign
             }
         ]
     }
-It will return messages from campaign having CAMPAIGN_ID = 071ec79 and from campaigns that have product word in name.
 
-*Hint*: Nesting of #####Conditions is also legal. For example send_newsletter #####Conditions may contain get_contacts #####Conditions which may contain get_links #####Conditions which may contain get_messages #####Conditions which may contain get_campaigns #####Conditions. Everything in one request!
+#####It will return messages from campaign having CAMPAIGN_ID = 071ec79 and from campaigns that have product word in name.
 
-**Warning**: Do not use campaigns when you mean get_campaigns. And the other way round. Condition campaigns expects array of CAMPAIGN_ID values while condition get_campaigns expects get_campaigns method #####Conditions. Same for messages/get_messages, contacts/get_contacts and others.
+**Hint**: *Nesting of **Conditions** is also legal. For example send_newsletter **Conditions** may contain get_contacts **Conditions** which may contain get_links **Conditions** which may contain get_messages **Conditions** which may contain get_campaigns **Conditions**. Everything in one request!*
 
-**Warning**: Do not provide text where ID is expected. This is incorrect.
+**Warning**: **Do not use campaigns when you mean get_campaigns. And the other way round. Condition campaigns expects array of CAMPAIGN_ID values while condition get_campaigns expects get_campaigns method **Conditions**. Same for messages/get_messages, contacts/get_contacts and others.**
+
+**Warning**: **Do not provide text where ID is expected. This is incorrect.**
 
     "campaigns" : [ "my_campaign_1" ]
