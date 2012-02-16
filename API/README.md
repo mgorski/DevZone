@@ -1,12 +1,18 @@
 ##GetResponse API Documentation
-version 1.8.10, 2012-01-19 [changelog](https://github.com/GetResponse/DevZone/blob/master/API/changelog.txt "changelog")
+version 1.8.10, 2012-01-19 
+[changelog](https://github.com/GetResponse/DevZone/blob/master/API/changelog.txt "changelog")
 
 ##AUTHORS
-The GetResponse API Documentation is created and maintained by the *GetResponse DevZone Team*. If you wish to contact the authors, please use the following contact form at [GetResponse DevZone](http://dev.getresponse.com "GetResponse DevZone").
+The GetResponse API Documentation is created and maintained by the 
+*GetResponse DevZone Team*. If you wish to contact the authors, please use the 
+following contact form at [GetResponse DevZone](http://dev.getresponse.com "GetResponse DevZone").
 
 ##DESCRIPTION
-This document describes the syntax and usage of all API methods. GetResponse API is JSON-RPC based, server is located at ***<http://api2.getresponse.com>***.
-If you are the ***GetResponse360*** user please be aware that your **API URL** is unique and it will be provided to you by your Account Manager.
+This document describes the syntax and usage of all API methods. 
+GetResponse API is JSON-RPC based, server is located at 
+***<http://api2.getresponse.com>***.
+If you are the ***GetResponse360*** user please be aware that your **API URL** 
+is unique and it will be provided to you by your Account Manager.
 
 ##API KEY
 In order to use GetResponse API, the unique **API KEY** is required. The key is assigned to every pro account and you can obtain it here.
@@ -422,6 +428,7 @@ Add campaign to account.
             }
         ]
     }
+
 #####Conditions:
 
 *	name (mandatory) – Value of name must be composed of lowercase letters, digits and underscores only.
@@ -431,7 +438,8 @@ Add campaign to account.
 *	confirmation_subject (mandatory) – CONFIRMATION_SUBJECT_ID obtained from get_confirmation_subjects. Used in confirmation messages sent from this campaign if double-optin is set for given subscription method.
 *	confirmation_body (mandatory) – CONFIRMATION_BODY_ID obtained from get_confirmation_bodies. Used in confirmation messages sent from this campaign if double-optin is set for given subscription method.
 *	language_code (optional) – Language of subscription reminder and change details / unsubscribe footer. List of available ISO 639-1 (2-letter) codes is available here. If we don’t have version in requested language then English version will be used.
-*JSON Response:*
+
+######*JSON Response:*
 
     {
         "result" : {
@@ -440,7 +448,8 @@ Add campaign to account.
         },
         "error" : null
     }
-Following errors may be returned: Name already taken, Missing From field, Missing Reply-To field, Missing confirmation subject, Missing confirmation body.
+
+#####Following errors may be returned: Name already taken, Missing From field, Missing Reply-To field, Missing confirmation subject, Missing confirmation body.
 
 **Hint**: *More methods that allows fine-tuning campaign will be added in the future. Please check this documentation frequently.*
 **Hint**: *Campaign added through API will use Dynamic Content syntax in messages by default.*
