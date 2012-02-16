@@ -1,9 +1,10 @@
 ##API Documentation
 version 1.8.10, 2012-01-19 [changelog](https://github.com/GetResponse/DevZone/blob/master/API/changelog.txt "changelog")
 ##AUTHORS
-If you wish to contact GetResponse Developer Zone team, please use the following contact form.
+If you wish to contact GetResponse Developer Zone team, please use the following contact form at [GetResponse DevZone](http://dev.getresponse.com "GetResponse DevZone")
 ##DESCRIPTION
 This document describes the syntax and usage of all API methods. GetResponse API is JSON-RPC based, server is located at *<http://api2.getresponse.com>*.
+If you are the GetResponse360 user please be aware that your API URL is unique and it will be provided to you by your Account Manager.
 ##API KEY
 In order to use GetResponse API, the unique API KEY is required. The key is assigned to every pro account and you can obtain it here.
 
@@ -30,11 +31,11 @@ Are divided into categories, that describe each part of GetResponse service as f
 
 For GetResponse360 customers there is a set of additional Methods that will be published in GitHub Gist soon.
 
-####Connection testing
+####Connection testing<a name="Connection_testing"/>
 
 *   [ping](#ping)
 
-####Account
+####Account<a name="Account"/>
 
 *   [get_account_info](#get_account_info)
 *   [get_account_from_fields](#get_account_from_fields)
@@ -43,7 +44,7 @@ For GetResponse360 customers there is a set of additional Methods that will be p
 *   [get_account_domains](#get_account_domains)
 *   [get_account_domain](#get_account_domain)
 
-####Campaigns
+####Campaigns<a name="Campaigns"/>
 
 *   [get_campaigns](#get_campaigns)
 *   [get_campaign](#get_campaign)
@@ -54,7 +55,7 @@ For GetResponse360 customers there is a set of additional Methods that will be p
 *   [get_campaign_postal_address](#get_campaign_postal_address)
 *   [set_campaign_postal_address](#set_campaign_postal_address)
 
-####Messages
+####Messages<a name="Messages"/>
 
 *   [get_messages](#get_messages)
 *   [get_message](#get_message)
@@ -69,7 +70,7 @@ For GetResponse360 customers there is a set of additional Methods that will be p
 *   [get_messages_amount_per_account](#get_messages_amount_per_account)
 *   [get_messages_amount_per_campaign](#get_messages_amount_per_campaign)
 
-####Contacts
+####Contacts<a name="Contacts"/>
 
 *   [get_contacts](#get_contacts)
 *   [get_contact](#get_contact)
@@ -88,12 +89,12 @@ For GetResponse360 customers there is a set of additional Methods that will be p
 *   [get_contacts_amount_per_account](#get_contacts_amount_per_account)
 *   [get_contacts_amount_per_campaign](#get_contacts_amount_per_campaign)
 
-####Links
+####Links<a name="Links"/>
 
 *   [get_links](#get_links)
 *   [get_link](#get_link)
 
-####Blacklists
+####Blacklists<a name="Blacklists"/>
 
 *   [get_account_blacklist](#get_account_blacklist)
 *   [add_account_blacklist](#add_account_blacklist)
@@ -102,7 +103,7 @@ For GetResponse360 customers there is a set of additional Methods that will be p
 *   [add_campaign_blacklist](#add_campaign_blacklist)
 *   [delete_campaign_blacklist](#delete_campaign_blacklist)
 
-####Suppressions
+####Suppressions<a name="Suppressions"/>
 
 *   [get_suppressions](#get_suppressions)
 *   [get_suppression](#get_suppression)
@@ -112,7 +113,7 @@ For GetResponse360 customers there is a set of additional Methods that will be p
 *   [add_suppression_skiplist](#add_suppression_skiplist)
 *   [delete_suppression_skiplist](#delete_suppression_skiplist)
 
-####Confirmation
+####Confirmation<a name="Confirmation"/>
 
 *   [get_confirmation_subjects](#get_confirmation_subjects)
 *   [get_confirmation_subject](#get_confirmation_subject)
@@ -162,7 +163,7 @@ For GetResponse360 customers there is a set of additional Methods that will be p
         },
         "error" : null
     }
-get_account_from_fields
+####get_account_from_fields<a name="get_account_from_fields"/>
 Get list of email addresses assigned to account.
 
 JSON Request:
@@ -190,7 +191,7 @@ JSON Response:
         },
         "error" : null
     }
-get_account_from_field
+####get_account_from_field<a name="ping"/>
 Get single email address assigned to account using FROM_FIELD_ID.
 
 JSON Request:
@@ -206,7 +207,7 @@ JSON Request:
     }
 Conditions:
 
-account_from_field (mandatory) – FROM_FIELD_ID.
+####account_from_field (mandatory) – FROM_FIELD_ID.<a name="ping"/>
 JSON Response:
 
     {
@@ -219,7 +220,7 @@ JSON Response:
         },
         "error" : null
     }
-add_account_from_field
+####add_account_from_field<a name="ping"/>
 Assign email address to account. It can be used in newly created campaigns.
 
 JSON Request:
@@ -253,7 +254,7 @@ Following errors may be returned: Invalid email syntax.
 
 Hint: When you add from field from web interface clicking confirmation link is required. But when you use API then it is confirmed by default and ready to use.
 
-get_account_domains
+####get_account_domains<a name="ping"/>
 Get domains assigned to account using www interface.
 
 JSON Request:
@@ -281,7 +282,7 @@ JSON Response:
     }
 Warning: Please nothe that after you add domain using www interface it takes up to 24h for us to check DNS propagation. So your domain may not be visible in method output instantly.
 
-get_account_domain
+####get_account_domain<a name="ping"/>
 Get single domain assigned to account using www interface.
 
 Comes in handy when you need to check which domain has campaign assigned.
@@ -310,7 +311,7 @@ JSON Response:
     }
  
 
-get_campaigns
+####get_campaigns<a name="ping"/>
 Get list of active campaigns in account.
 
 JSON Request:
@@ -362,7 +363,7 @@ Hint: There can be only one campaign of a given name, so if you need it’s CAMP
     ]
 and the only one key from response is CAMPAIGN_ID.
 
-get_campaign
+####get_campaign<a name="ping"/>
 Get single campaign using CAMPAIGN_ID.
 
 Useful for checking which campaign the contact or message belongs to.
@@ -380,7 +381,7 @@ JSON Request:
     }
 Conditions:
 
-campaign (mandatory) – CAMPAIGN_ID.
+####campaign (mandatory) – CAMPAIGN_ID.<a name="ping"/>
 JSON Response:
 
     {
@@ -398,7 +399,7 @@ JSON Response:
     }
 Output has the same format as for get_campaigns.
 
-add_campaign
+####add_campaign<a name="ping"/>
 Add campaign to account.
 
 JSON Request:
@@ -420,13 +421,13 @@ JSON Request:
     }
 Conditions:
 
-name (mandatory) – Value of name must be composed of lowercase letters, digits and underscores only.
-description (optional) – User friendly name of campaign.
-from_field (mandatory) – FROM_FIELD_ID obtained from get_account_from_fields. It affects From header (name and email) in messages sent from this campaign.
-reply_to_field (mandatory) – FROM_FIELD_ID obtained from get_account_from_fields. It affects Reply-To header (email) in messages sent from this campaign.
-confirmation_subject (mandatory) – CONFIRMATION_SUBJECT_ID obtained from get_confirmation_subjects. Used in confirmation messages sent from this campaign if double-optin is set for given subscription method.
-confirmation_body (mandatory) – CONFIRMATION_BODY_ID obtained from get_confirmation_bodies. Used in confirmation messages sent from this campaign if double-optin is set for given subscription method.
-language_code (optional) – Language of subscription reminder and change details / unsubscribe footer. List of available ISO 639-1 (2-letter) codes is available here. If we don’t have version in requested language then English version will be used.
+*	name (mandatory) – Value of name must be composed of lowercase letters, digits and underscores only.
+*	description (optional) – User friendly name of campaign.
+*	from_field (mandatory) – FROM_FIELD_ID obtained from get_account_from_fields. It affects From header (name and email) in messages sent from this campaign.
+*	reply_to_field (mandatory) – FROM_FIELD_ID obtained from get_account_from_fields. It affects Reply-To header (email) in messages sent from this campaign.
+*	confirmation_subject (mandatory) – CONFIRMATION_SUBJECT_ID obtained from get_confirmation_subjects. Used in confirmation messages sent from this campaign if double-optin is set for given subscription method.
+*	confirmation_body (mandatory) – CONFIRMATION_BODY_ID obtained from get_confirmation_bodies. Used in confirmation messages sent from this campaign if double-optin is set for given subscription method.
+*	language_code (optional) – Language of subscription reminder and change details / unsubscribe footer. List of available ISO 639-1 (2-letter) codes is available here. If we don’t have version in requested language then English version will be used.
 JSON Response:
 
     {
@@ -444,7 +445,7 @@ Hint: Campaign added through API will use Dynamic Content syntax in messages by 
 
 Warning: Campaign added through API will be visible/usable on www interface after relogging.
 
-get_campaign_domain
+####get_campaign_domain<a name="ping"/>
 Check if any account domain is assigned to campaign. Assigned domain will be used in links in messages sent from this campaign.
 
 JSON Request:
@@ -460,7 +461,7 @@ JSON Request:
     }
 Conditions:
 
-campaigns (mandatory) – CAMPAIGN_ID obtained from get_campaigns.
+####campaigns (mandatory) – CAMPAIGN_ID obtained from get_campaigns.<a name="ping"/>
 JSON Response:
 
     {
@@ -476,7 +477,7 @@ Empty result means that no domain is assigned.
 
 Following errors may be returned: Missing campaign.
 
-set_campaign_domain
+####set_campaign_domain<a name="ping"/>
 Assign account domain to campaign. Assigned domain will be used in links in messages sent from this campaign.
 
 JSON Request:
@@ -493,7 +494,7 @@ JSON Request:
     }
 Conditions:
 
-campaigns (mandatory) – CAMPAIGN_ID obtained from get_campaigns.
+####campaigns (mandatory) – CAMPAIGN_ID obtained from get_campaigns.<a name="ping"/>
 account_domain (mandatory) – ACCOUNT_DOMAIN_ID obtained from get_account_domains.
 JSON Response:
 
@@ -507,7 +508,7 @@ Following errors may be returned: Missing campaign, Missing account domain.
 
 Warning: Any messages sent from now on from this campaign will use this domain in links, even if message was scheduled before domain assignment.
 
-delete_campaign_domain
+####delete_campaign_domain<a name="ping"/>
 Unassign account domain from campaign. Unassigned domain will no longer be used in links in messages sent from this campaign.
 
 JSON Request:
@@ -523,7 +524,7 @@ JSON Request:
     }
 Conditions:
 
-campaigns (mandatory) – CAMPAIGN_ID obtained from get_campaigns.
+####campaigns (mandatory) – CAMPAIGN_ID obtained from get_campaigns.<a name="ping"/>
 JSON Response:
 
     {
@@ -538,7 +539,7 @@ Hint: This does not delete domain from account. Domain is still visible in get_a
 
 Warning: Any messages sent from now on from this campaign will not use this domain in links, even if message was scheduled before domain unassignment.
 
-get_campaign_postal_address
+####get_campaign_postal_address<a name="ping"/>
 Get postal address and postal design (formatting) in campaign. Postal address is attached to every message sent from campaign and can be also viewed on www interface.
 
 JSON Request:
@@ -554,7 +555,7 @@ JSON Request:
     }
 Conditions:
 
-campaigns (mandatory) – CAMPAIGN_ID obtained from get_campaigns.
+####campaigns (mandatory) – CAMPAIGN_ID obtained from get_campaigns.<a name="ping"/>
 JSON Response:
 
     {
@@ -573,7 +574,7 @@ Empty result means that no postal address is assigned to domain. In such cases p
 
 Following errors may be returned: Missing campaign.
 
-set_campaign_postal_address
+####set_campaign_postal_address<a name="ping"/>
 Set postal address and postal design (formatting) in campaign. Postal address is attached to every message sent from campaign and can be also changed on www interface.
 
 JSON Request:
@@ -596,14 +597,14 @@ JSON Request:
     }
 Conditions:
 
-campaigns (mandatory) – CAMPAIGN_ID obtained from get_campaigns.
-name (optional) - Name of you or your company.
-address (mandatory) – Street and number.
-city (mandatory) – City.
-state (optional) - State or region.
-zip (mandatory) – Zip / postal code.
-country (mandatory) – Country. Name must be comatible with the one on www interface.
-design (mandatory) – How your postal address will be formated. Fields above marked as mandatory must also be present in design! Do not insert HTML tags here, this will be converted in HTML part of messages automatically.
+*	campaigns (mandatory) – CAMPAIGN_ID obtained from get_campaigns.
+*	name (optional) - Name of you or your company.
+*	address (mandatory) – Street and number.
+*	city (mandatory) – City.
+*	state (optional) - State or region.
+*	zip (mandatory) – Zip / postal code.
+*	country (mandatory) – Country. Name must be comatible with the one on www interface.
+*	design (mandatory) – How your postal address will be formated. Fields above marked as mandatory must also be present in design! Do not insert HTML tags here, this will be converted in HTML part of messages automatically.
 JSON Response:
 
     {
@@ -614,7 +615,7 @@ JSON Response:
     }
 Following errors may be returned: Missing campaign, Token missing in design.
 
-get_messages
+####get_messages<a name="ping"/>
 Get messages in account.
 
 JSON Request:
@@ -634,10 +635,10 @@ JSON Request:
     }
 Conditions:
 
-campaigns / get_campaigns (optional) – Search only in given campaigns. Uses OR logic. If those params are not given search, is performed in all campaigns in the account. Check IDs in conditions for detailed explanation.
-type (optional) – Use newsletter or follow-up to narrow down search results to specific message types.
-subject (optional) – Use text operators to narrow down search results to specific message subjects.
-draft_mode (optional) – Use true or false, default is false. Switches between regular messages and drafts. Draft mode can be combined with other conditions, for example with type condition to get newsletter drafts only.
+*	campaigns / get_campaigns (optional) – Search only in given campaigns. Uses OR logic. If those params are not given search, is performed in all campaigns in the account. Check IDs in conditions for detailed explanation.
+*	type (optional) – Use newsletter or follow-up to narrow down search results to specific message types.
+*	subject (optional) – Use text operators to narrow down search results to specific message subjects.
+*	draft_mode (optional) – Use true or false, default is false. Switches between regular messages and drafts. Draft mode can be combined with other conditions, for example with type condition to get newsletter drafts only.
 JSON Response:
 
     {
@@ -664,17 +665,17 @@ This method provides MESSAGE_IDs which can be used in other methods.
 
 Array flags may be present and represent message flags which may contain following values:
 
-clicktrack – clicks on links in message are counted.  Note that for the link to be clicktracked it must be also wrapped in Dynamic Content {{LINK}} tag. This behaves differently than WWW interface, where (for simplicity) all links are clicktracked when clicktrack checkbox is set.
-subscription_reminder – short disclaimer is added to the message content to make sure that subscriber know why they are receiving the messages.
-openrate – opened messages are counted (only if html content is present).
-google_analytics – Google Analytics code is appended to every link in message,
+*	clicktrack – clicks on links in message are counted.  Note that for the link to be clicktracked it must be also wrapped in Dynamic Content {{LINK}} tag. This behaves differently than WWW interface, where (for simplicity) all links are clicktracked when clicktrack checkbox is set.
+*	subscription_reminder – short disclaimer is added to the message content to make sure that subscriber know why they are receiving the messages.
+*	openrate – opened messages are counted (only if html content is present).
+*	google_analytics – Google Analytics code is appended to every link in message,
 Hint: All mergewords in subject are returned as GetResponse Dynamic Content syntax.
 
 Hint: If type is follow-up then day_of_cycle is returned and if type is newsletter then send_on is returned. Those fields are not present in draft mode.
 
 Hint: If you need plain and HTML contents of your message use get_message_contents method.
 
-get_message
+####get_message<a name="ping"/>
 Get single message using MESSAGE_ID.
 
 Comes in handy when you need to check which message the given link belongs to.
@@ -692,7 +693,7 @@ JSON Request:
     }
 Conditions:
 
-message (mandatory) – MESSAGE_ID.
+####message (mandatory) – MESSAGE_ID.<a name="ping"/>
 JSON Response:
 
     {
@@ -710,7 +711,7 @@ JSON Response:
     }
 Output has the same format as for get_messages.
 
-get_message_contents
+####get_message_contents<a name="ping"/>
 Get message contents (parts).
 
 JSON Request:
