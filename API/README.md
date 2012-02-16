@@ -12,11 +12,26 @@ In order to use GetResponse API, the unique API KEY is required. The key is assi
 If you are a developer and you want to utilize our API with a free account please use the contact form, provide us with your free account name and briefly describe the purpose of your project (requests without project description will be rejected)- we will assign the API KEY for you.
 
 ##GETTING STARTED
-Examples in popular programing languages are available on
-Including: C#, Java, JavaScript, Perl, PHP, Python, Ruby, Flex.
+Examples in popular programing languages are available on [GitHub](https://github.com/mgorski/DevZone/tree/master/API/examples "Exapmples of use") Including: C#, Java, JavaScript, Perl, PHP, Python, Ruby, Flex.
 
 ###METHODS
+
+Are divided into categories, that describe each part of GetResponse service as follows:
+
+1.	[Connection testing](#Connection_testing)
+2.	[Account](#Account)
+3.	[Campaigns](#Campaigns)
+4.	[Messages](#Messages)
+5.	[Contacts](#Contacts)
+6.	[Links](#Links)
+7.	[Blacklists](#Blacklists)
+8.	[Suppressions](#Suppressions)
+9.	[Confirmation](#Confirmation)
+
+For GetResponse360 customers there is a set of additional Methods that will be published in GitHub Gist soon.
+
 ####Connection testing
+
 *   [ping](#ping)
 
 ####Account
@@ -30,79 +45,79 @@ Including: C#, Java, JavaScript, Perl, PHP, Python, Ruby, Flex.
 
 ####Campaigns
 
-*   get_campaigns
-*   get_campaign
-*   add_campaign
-*   get_campaign_domain
-*   set_campaign_domain
-*   delete_campaign_domain
-*   get_campaign_postal_address
-*   set_campaign_postal_address
+*   [get_campaigns](#get_campaigns)
+*   [get_campaign](#get_campaign)
+*   [add_campaign](#add_campaign)
+*   [get_campaign_domain](#get_campaign_domain)
+*   [set_campaign_domain](#set_campaign_domain)
+*   [delete_campaign_domain](#delete_campaign_domain)
+*   [get_campaign_postal_address](#get_campaign_postal_address)
+*   [set_campaign_postal_address](#set_campaign_postal_address)
 
 ####Messages
 
-*   get_messages
-*   get_message
-*   get_message_contents
-*   get_message_stats
-*   send_newsletter
-*   add_follow_up
-*   add_draft
-*   delete_newsletter
-*   delete_follow_up
-*   set_follow_up_cycle
-*   get_messages_amount_per_account
-*   get_messages_amount_per_campaign
+*   [get_messages](#get_messages)
+*   [get_message](#get_message)
+*   [get_message_contents](#get_message_contents)
+*   [get_message_stats](#get_message_stats)
+*   [send_newsletter](#send_newsletter)
+*   [add_follow_up](#add_follow_up)
+*   [add_draft](#add_draft)
+*   [delete_newsletter](#delete_newsletter)
+*   [delete_follow_up](#delete_follow_up)
+*   [set_follow_up_cycle](#set_follow_up_cycle)
+*   [get_messages_amount_per_account](#get_messages_amount_per_account)
+*   [get_messages_amount_per_campaign](#get_messages_amount_per_campaign)
 
 ####Contacts
 
-*   get_contacts
-*   get_contact
-*   set_contact_name
-*   get_contact_customs
-*   set_contact_customs
-*   get_contact_geoip
-*   get_contact_opens
-*   get_contact_clicks
-*   set_contact_cycle
-*   add_contact
-*   move_contact
-*   delete_contact
-*   get_contacts_deleted
-*   get_contacts_subscription_stats
-*   get_contacts_amount_per_account
-*   get_contacts_amount_per_campaign
+*   [get_contacts](#get_contacts)
+*   [get_contact](#get_contact)
+*   [set_contact_name](#set_contact_name)
+*   [get_contact_customs](#get_contact_customs)
+*   [set_contact_customs](#set_contact_customs)
+*   [get_contact_geoip](#get_contact_geoip)
+*   [get_contact_opens](#get_contact_opens)
+*   [get_contact_clicks](#get_contact_clicks)
+*   [set_contact_cycle](#set_contact_cycle)
+*   [add_contact](#add_contact)
+*   [move_contact](#move_contact)
+*   [delete_contact](#delete_contact)
+*   [get_contacts_deleted](#get_contacts_deleted)
+*   [get_contacts_subscription_stats](#get_contacts_subscription_stats)
+*   [get_contacts_amount_per_account](#get_contacts_amount_per_account)
+*   [get_contacts_amount_per_campaign](#get_contacts_amount_per_campaign)
 
 ####Links
 
-*   get_links
-*   get_link
+*   [get_links](#get_links)
+*   [get_link](#get_link)
 
 ####Blacklists
 
-*   get_account_blacklist
-*   add_account_blacklist
-*   delete_account_blacklist
-*   get_campaign_blacklist
-*   add_campaign_blacklist
-*   delete_campaign_blacklist
+*   [get_account_blacklist](#get_account_blacklist)
+*   [add_account_blacklist](#add_account_blacklist)
+*   [delete_account_blacklist](#delete_account_blacklist)
+*   [get_campaign_blacklist](#get_campaign_blacklist)
+*   [add_campaign_blacklist](#add_campaign_blacklist)
+*   [delete_campaign_blacklist](#delete_campaign_blacklist)
 
 ####Suppressions
 
-*   get_suppressions
-*   get_suppression
-*   add_suppression
-*   delete_suppression
-*   get_suppression_skiplist
-*   add_suppression_skiplist
-*   delete_suppression_skiplist
+*   [get_suppressions](#get_suppressions)
+*   [get_suppression](#get_suppression)
+*   [add_suppression](#add_suppression)
+*   [delete_suppression](#delete_suppression)
+*   [get_suppression_skiplist](#get_suppression_skiplist)
+*   [add_suppression_skiplist](#add_suppression_skiplist)
+*   [delete_suppression_skiplist](#delete_suppression_skiplist)
 
 ####Confirmation
 
-*   get_confirmation_subjects
-*   get_confirmation_subject
-*   get_confirmation_bodies
-*   get_confirmation_body
+*   [get_confirmation_subjects](#get_confirmation_subjects)
+*   [get_confirmation_subject](#get_confirmation_subject)
+*   [get_confirmation_bodies](#get_confirmation_bodies)
+*   [get_confirmation_body](#get_confirmation_body)
  
 
 ####ping<a name="ping"/>
