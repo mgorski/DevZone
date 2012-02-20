@@ -145,7 +145,7 @@ follows:
 ####ping<a name="ping"/>
 #####Test connection with API.
 ######*JSON Request:*
-
+```json
     {
         "method" : "ping",
         "params" : [
@@ -153,7 +153,7 @@ follows:
 
         ]
     }
-
+```
 ######*JSON Response:*
 
     {
