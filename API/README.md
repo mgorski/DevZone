@@ -30,7 +30,7 @@ be rejected)- we will assign the API KEY for you.
 ##SUPPORT
 If you run into an error or you will have difficulties with using the API, you 
 may easily report it in the Issues section here in GetResponse GitHub Organization 
-profile and we will provide all the support we can to solve your issues.
+profile and we will provide all the support we can to solve your problems.
 
 ##GETTING STARTED
 Examples in popular programing languages are available here on 
