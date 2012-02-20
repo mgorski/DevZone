@@ -10,7 +10,7 @@ following contact form at [GetResponse DevZone](http://dev.getresponse.com "GetR
 ##DESCRIPTION
 This document describes the syntax and usage of all API methods. 
 GetResponse API is JSON-RPC based, server is located at 
-***<http://api2.getresponse.com>***.
+`http://api2.getresponse.com`.
 If you are the ***GetResponse360*** user please be aware that your **API URL** 
 is unique and it will be provided to you by your Account Manager.
 
@@ -145,6 +145,7 @@ follows:
 ####ping<a name="ping"/>
 #####Test connection with API.
 ######*JSON Request:*
+
 ```json
     {
         "method" : "ping",
@@ -154,18 +155,21 @@ follows:
         ]
     }
 ```
+
 ######*JSON Response:*
+
+```json
 
     {
         "result" : {
             "ping" : "pong"
-        },
-        "error" : null
-    }
-
+        }
+```
 ####get_account_info<a name="get_account_info"/>
 #####Get basic info about your account.
 ######*JSON Request:*
+
+```json
 
     {
         "method" : "get_account_info",
@@ -173,8 +177,11 @@ follows:
             "your_api_key_here"
         ]
     }
+```
 
 ######*JSON Response:*
+
+```json
 
     {
         "result" : {
@@ -182,13 +189,14 @@ follows:
             "from_name"     : "My From Name",
             "from_email"    : "me@emailaddress.com",
             "created_on"    : "2010-01-01"
-        },
-        "error" : null
-    }
+        }
+```
 
 ####get_account_from_fields<a name="get_account_from_fields"/>
 #####Get list of email addresses assigned to account.
 ######*JSON Request:*
+
+```json
 
     {
         "method" : "get_account_from_fields",
@@ -196,8 +204,11 @@ follows:
             "your_api_key_here"
         ]
     }
+```
 
 ######*JSON Response:*
+
+```json
 
     {
         "result" : {
@@ -211,13 +222,14 @@ follows:
                 "email"         : "also.me@another-emailaddress.com",
                 "name'          : "My Other Name"
             }
-        },
-        "error" : null
-    }
+        }
+```
 
 ####get_account_from_field<a name="ping"/>
 #####Get single email address assigned to account using FROM_FIELD_ID.
 ######*JSON Request:*
+
+```json
 
     {
         "method" : "get_account_from_field",
@@ -228,12 +240,15 @@ follows:
             }
         ]
     }
+```
 
 #####Conditions:
 
 *	account_from_field (mandatory) – FROM_FIELD_ID.
 
 ######*JSON Response:*
+
+```json
 
     {
         "result" : {
@@ -242,13 +257,14 @@ follows:
                 "email"         : "me@emailaddress.com",
                 "name'          : "My From Name"
             }
-        },
-        "error" : null
-    }
+        }
+```
 
 ####add_account_from_field<a name="ping"/>
 #####Assign email address to account. It can be used in newly created campaigns.
 ######*JSON Request:*
+
+```json
 
     {
         "method" : "add_account_from_field",
@@ -260,14 +276,18 @@ follows:
             }
         ]
     }
+```
 
 ######*JSON Response:*
+
+```json
 
     {
         "result" : {
             "FROM_FIELD_ID" : "abc123",
             "added" : 1
         }
+```
 
 #####Following errors may be returned: Invalid email syntax.
 
@@ -277,14 +297,19 @@ follows:
 #####Get domains assigned to account using www interface.
 ######*JSON Request:*
 
+```json
+
     {
         "method" : "get_account_domains",
         "params" : [
             "your_api_key_here"
         ]
     }
+```
 
 ######*JSON Response:*
+
+```json
 
     {
         "result" : {
@@ -296,15 +321,16 @@ follows:
                 "created_on"    : "2009-01-02 00:00:00",
                 "domain"        : "otheremailaddress.com"
             }
-        },
-        "error" : null
-    }
+        }
+```
 
 **Warning**: Please nothe that after you add domain using www interface it takes up to 24h for us to check DNS propagation. So your domain may not be visible in method output instantly.
 
 ####get_account_domain<a name="ping"/>
 #####Get single domain assigned to account using www interface. Comes in handy when you need to check which domain has campaign assigned.
 ######*JSON Request:*
+
+```json
 
     {
         "method" : "get_account_domain",
@@ -315,8 +341,11 @@ follows:
             }
         ]
     }
+```
 
 ######*JSON Response:*
+
+```json
 
     {
         "result" : {
@@ -324,14 +353,14 @@ follows:
                 "created_on"    : "2009-01-01 00:00:00",
                 "domain"        : "emailaddress.com"
             }
-        },
-        "error" : null
-    }
- 
+        }
+ ```
 
 ####get_campaigns<a name="ping"/>
 #####Get list of active campaigns in account.
 ######*JSON Request:*
+
+```json
 
     {
         "method" : "get_campaigns",
@@ -342,11 +371,14 @@ follows:
             }
         ]
     }
+```
 
 #####Conditions:
 *	name (optional) – Use text operators to narrow down search results to specific campaign names.
 
 ######*JSON Response:*
+
+```json
 
     {
         "result" : {
@@ -366,13 +398,14 @@ follows:
                 "reply_to_email"    : "replies@emailaddress.com",
                 "created_on"        : "2010-01-01 00:00:00"
             }
-        },
-        "error" : null
-    }
+        }
+```
 
 #####This method provides CAMPAIGN_IDs which can be used in other methods.
 
 **Hint**: *There can be only one campaign of a given name, so if you need it’s CAMPAIGN_ID perform search like that:*
+
+```json
 
     "params" : [
         "your_api_key_here",
@@ -380,15 +413,16 @@ follows:
             "name" : { "EQUALS" : "your_campaign_1" }
         }
     ]
+```
 
 #####and the only one key from response is CAMPAIGN_ID.
 
 ####get_campaign<a name="ping"/>
-Get single campaign using CAMPAIGN_ID.
-
-Useful for checking which campaign the contact or message belongs to.
-
+#####Get single campaign using CAMPAIGN_ID.
+#####Useful for checking which campaign the contact or message belongs to.
 *JSON Request:*
+
+```json
 
     {
         "method" : "get_campaign",
@@ -399,6 +433,8 @@ Useful for checking which campaign the contact or message belongs to.
             }
         ]
     }
+```
+
 #####Conditions:
 
 ####campaign (mandatory) – CAMPAIGN_ID.<a name="ping"/>
