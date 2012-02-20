@@ -11,21 +11,22 @@ following contact form at [GetResponse DevZone](http://dev.getresponse.com "GetR
 This document describes the syntax and usage of all API methods. 
 GetResponse API is JSON-RPC based, server is located at 
 `http://api2.getresponse.com`.
-If you are the ***GetResponse360*** user please be aware that your **API URL** 
+If you are the ***GetResponse360*** user please be aware that your `API URL` 
 is unique and it will be provided to you by your Account Manager.
 
 ##API KEY
-In order to use GetResponse API, the unique **API KEY** is required. The key 
-is assigned to every pro account and you can obtain it here.
+In order to use GetResponse API, the unique `API KEY` is required. The key 
+is assigned to every pro account and you can obtain it in **My Account** section
+after logging in, to your GetResponse account.
 
-**Warning**: Please note that the API KEY unambiguously identifies your account 
-and allows all who know the API KEY to manage contacts, messages etc. Please 
-keep your API key safe and do not share it with any unauthorized persons.
+**Warning**: Please note that the `API KEY` unambiguously identifies your account 
+and allows all who know the `API KEY` to manage contacts, messages etc. Please 
+keep your `API KEY` safe and do not share it with any unauthorized persons.
 
 If you are a developer and you want to utilize our API with a free account 
 please use the contact form, provide us with your free account name and briefly 
 describe the purpose of your project (requests without project description will 
-be rejected)- we will assign the API KEY for you.
+be rejected)- we will assign the `API KEY` for you.
 
 ##SUPPORT
 If you run into an error or you will have difficulties with using the API, you 
@@ -415,10 +416,10 @@ follows:
     ]
 ```
 
-#####and the only one key from response is CAMPAIGN_ID.
+#####and the only one key from response is `CAMPAIGN_ID`.
 
-####get_campaign<a name="ping"/>
-#####Get single campaign using CAMPAIGN_ID.
+####get_campaign<a name="get_campaign"/>
+#####Get single campaign using `CAMPAIGN_ID`.
 #####Useful for checking which campaign the contact or message belongs to.
 *JSON Request:*
 
@@ -437,7 +438,8 @@ follows:
 
 #####Conditions:
 
-####campaign (mandatory) – CAMPAIGN_ID.<a name="ping"/>
+*	campaign (mandatory) – `CAMPAIGN_ID`
+
 *JSON Response:*
 
     {
